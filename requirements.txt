@@ -1,0 +1,8 @@
+bokeh
+pandas
+requests
+TA-Lib
+pytest
+matplotlib
+empyrical
+numpy
