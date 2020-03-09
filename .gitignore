@@ -1,0 +1,8 @@
+# Byte-compiled
+__pycache__/
+
+# Editors
+.vscode/
+.idea/
+
+chart.html
