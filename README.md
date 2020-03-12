@@ -36,7 +36,7 @@ and run: `pip3 install -r requirements.txt`).
 ### Write bot
 See the botsjabloon.py for an explanation about writing your first bot. 
 This means you have to implement the function `get_buy_or_sell_signal` and store that 
-function in a python file (extension .py). For an exapmple see rsi.py.
+function in a python file (extension .py). For an example see rsi.py.
 
 ### Config test
 See `config_test` for the simulation parameters of the backtesting engine and the data settings for 
