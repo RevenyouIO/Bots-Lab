@@ -17,20 +17,20 @@ def get_historical_data_cryptocompare():
 
     return cc.load_dataframe(pair, days_history, exchange)
 
-def get_real_time_data_poloniex():
+def get_live_data_poloniex():
     pair = dsp.get('pair')
     period = dsp.get('period')
     days_history = dsp.get('days_history')
 
-    # return real time data from poloniex
+    # return live data from poloniex (historical and/or realtime)
     return px.load_dataframe(pair, period, days_history)
 
-def get_real_time_data_cryptocompare():
+def get_live_data_cryptocompare():
     pair = dsc.get('pair')
     days_history = dsc.get('days_history')
     exchange = dsc.get('exchange')
 
-    # return real time data from cryptocompare
+    # return live data from cryptocompare ((historical and/or realtime))
     return cc.load_dataframe(pair, days_history, exchange)
 
 
