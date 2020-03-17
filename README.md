@@ -30,15 +30,15 @@ Only then can you install TA-Lib.
 
 ### Install libraries globally with requirements.txt
 Steps:
-1. go to the root directory of the project
-2. run the command `pip install -r requirements.txt` (on the Mac: `pip3 install -r requirements.txt`).
+1. Go to the root directory of the project
+2. Run the command `pip install -r requirements.txt` (on the Mac: `pip3 install -r requirements.txt`).
 
-### Install libaries locally for your project with requierments.txt
+### Install libaries locally for your project with requirements.txt
 Steps:
-1. Installeer virtualenv (this still has to be done globally): `pip3 install virtualenv`
-2. go to the root directory of the project
+1. Install virtualenv (this still has to be done globally): `pip3 install virtualenv`
+2. Go to the root directory of the project
 2. Create a virtualenv in your project: `virtualenv venv`
-3. Activate virtualenv: `. venv/bin/activate`
+3. activate virtualenv: `. venv/bin/activate`
 4. Install the requirements: `pip3 install -r requirements.txt` (on the Mac: `pip3 install -r requirements.txt`).
 
 ## Create and run your first bot
