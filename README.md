@@ -28,7 +28,9 @@ Before you can install TA-Lib you must first install the underlying dependecy ta
 on the Mac, when you have installed brew, you must first execute the command `brew install ta-lib`. 
 Only then can you install TA-Lib.
 
-You can choose to install your libraries locally or globally (not both!):
+### Install your libraries locally or globally (not both!):
+You can choose to install your libraries locally or globally, but not both. When
+installing them locally you will avoid possible conflicting depencies.
 
 ### Install libraries globally with requirements.txt
 Steps:
