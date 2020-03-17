@@ -43,12 +43,12 @@ Steps:
 
 ## Create and run your first bot
 
-### Write bot
+### Writing your first bot
 See the botsjabloon.py for an explanation about writing your first bot. 
 This means you have to implement the function `get_buy_or_sell_signal` and store that 
 function in a python file (extension .py). For an example see rsi.py.
 
-### Config test
+### Configuration Backtesting tool
 See `config_test` for the simulation parameters of the Backtesting tool and the data settings for 
 the historical data. 
 
