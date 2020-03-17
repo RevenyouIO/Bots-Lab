@@ -1,5 +1,8 @@
 # Bot-Backtesting
 Open Source Backtesting Tool.
+With this tool you can test your bot with historical data to see how it performs.
+The results will be compared against the benchmark. See botsjabloon.py and config_test.py
+for more information.
 
 ## Download Python 3
 For this project Python 3 is needed. Mac users take note: Python is allready installed 
@@ -11,25 +14,32 @@ For downloading Python 3 see [Download Python](https://www.python.org/downloads/
 Pip is the recommended package manager for installing libraries. 
 For more information about Pip see [Pip home page](https://pypi.org/project/pip/)
 
-### Installing Pip
-For installing Pip see [Install Pip](https://pip.pypa.io/en/stable/installing/).
+### Install Pip
+Pip should allready be installed when downloading Python. But if somehow it is not 
+see [Install Pip](https://pip.pypa.io/en/stable/installing/) for installing Pip.
 
 ### User guide Pip
 For a user guide see [User guide Pip](https://pip.pypa.io/en/stable/user_guide/).
+
+## Install libraries
 
 ### Install library TA-Lib
 Before you can install TA-Lib you must first install the underlying dependecy ta-lib. For example 
 on the Mac, when you have installed brew, you must first execute the command `brew install ta-lib`. 
 Only then can you install TA-Lib.
 
-### Install libraries with requirements.txt
-With the command `pip install -r requirements.txt` you can install multiple libraries at once.
-See the requirement.txt file for the libraries needed in this project.
+### Install libraries globally with requirements.txt
 Steps:
-1. install TA-Lib
+1. go to the root directory of the project
+2. run the command `pip install -r requirements.txt` (on the Mac: `pip3 install -r requirements.txt`).
+
+### Install libaries locally for your project with requierments.txt
+Steps:
+1. Installeer virtualenv (this still has to be done globally): `pip3 install virtualenv`
 2. go to the root directory of the project
-3. run the command `pip install -r requirements.txt` (on the Mac open your terminal 
-and run: `pip3 install -r requirements.txt`).
+2. Create a virtualenv in your project: `virtualenv venv`
+3. Activate virtualenv: `. venv/bin/activate`
+4. Install the requirements: `pip3 install -r requirements.txt` (on the Mac: `pip3 install -r requirements.txt`).
 
 ## Create and run your first bot
 
@@ -39,7 +49,7 @@ This means you have to implement the function `get_buy_or_sell_signal` and store
 function in a python file (extension .py). For an example see rsi.py.
 
 ### Config test
-See `config_test` for the simulation parameters of the backtesting engine and the data settings for 
+See `config_test` for the simulation parameters of the Backtesting tool and the data settings for 
 the historical data. 
 
 ### Run your bot against the backtesting engine
@@ -47,5 +57,5 @@ Steps:
 1. First you have to import the `get_buy_or_sell_signal` function that you have written. 
 You can can do that by going to the `run_test.py` file. Fill in the name of the file that contains your 
 `get_buy_or_sell_signal` function: `from [file_name_of_bot_function] import get_buy_or_sell_signal`.
-2. Then you can execute the following command on the command line: `python run_test.py`. When you have installed
-python 3 on the Mac run in the terminal: `python3 run_test.py`.
+2. Then you can execute the following command on the command line: `python run_test.py`. 
+On the Mac : `python3 run_test.py`.
