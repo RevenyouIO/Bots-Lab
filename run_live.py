@@ -5,7 +5,7 @@ from data.data_service import get_live_data_poloniex, get_live_data_cryptocompar
 # choose here which bot function to import
 from rsi import get_buy_or_sell_signal
 
-def runBot(data):
+def run_bot(data):
     buy_or_sell_signal = get_buy_or_sell_signal(data)
     if buy_or_sell_signal is not None:
         revenyou_api_signal = create_revenyou_api_signal(signal = buy_or_sell_signal)
@@ -34,4 +34,4 @@ def get_live_data():
 
 # run periodically through cronjob
 live_data = get_live_data()
-runBot(data = live_data)
+run_bot(data = live_data)
