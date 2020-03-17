@@ -28,10 +28,12 @@ Before you can install TA-Lib you must first install the underlying dependecy ta
 on the Mac, when you have installed brew, you must first execute the command `brew install ta-lib`. 
 Only then can you install TA-Lib.
 
+You can choose to install your libraries locally or globally (not both!):
+
 ### Install libraries globally with requirements.txt
 Steps:
 1. Go to the root directory of the project
-2. Run the command `pip install -r requirements.txt` (on the Mac: `pip3 install -r requirements.txt`).
+2. Run the command `pip3 install -r requirements.txt`.
 
 ### Install libaries locally for your project with requirements.txt
 Steps:
@@ -39,7 +41,7 @@ Steps:
 2. Go to the root directory of the project
 2. Create a virtualenv in your project: `virtualenv venv`
 3. activate virtualenv: `. venv/bin/activate`
-4. Install the requirements: `pip3 install -r requirements.txt` (on the Mac: `pip3 install -r requirements.txt`).
+4. Install the requirements: `pip3 install -r requirements.txt`.
 
 ## Create and run your first bot
 
