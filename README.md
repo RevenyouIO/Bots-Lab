@@ -30,7 +30,7 @@ Only then can you install TA-Lib.
 
 ### Install your libraries locally or globally (not both!):
 You can choose to install your libraries locally or globally, but not both. When
-installing them locally you will avoid possible conflicting depencies.
+installing them locally you will avoid possible conflicting dependecies.
 
 ### Install libraries globally with requirements.txt
 Steps:
