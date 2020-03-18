@@ -11,22 +11,14 @@ For downloading Python 3 see [Download Python](https://www.python.org/downloads/
 
 
 ## Pip package manager
-Pip is the recommended package manager for installing libraries. 
+Pip is the recommended package manager for installing libraries. When downloading
+Python 3 Pip will automatically be installed. 
 For more information about Pip see [Pip home page](https://pypi.org/project/pip/)
-
-### Install Pip
-Pip should allready be installed when downloading Python. But if somehow it is not 
-see [Install Pip](https://pip.pypa.io/en/stable/installing/) for installing Pip.
 
 ### User guide Pip
 For a user guide see [User guide Pip](https://pip.pypa.io/en/stable/user_guide/).
 
 ## Install libraries
-
-### Install library TA-Lib
-Before you can install TA-Lib you must first install the underlying dependecy ta-lib. For example 
-on the Mac, when you have installed brew, you must first execute the command `brew install ta-lib`. 
-Only then can you install TA-Lib.
 
 ### Install your libraries locally or globally (not both!):
 You can choose to install your libraries locally or globally, but not both. When
@@ -44,6 +36,12 @@ Steps:
 2. Create a virtualenv in your project: `virtualenv venv`
 3. activate virtualenv: `. venv/bin/activate`
 4. Install the requirements: `pip3 install -r requirements.txt`.
+
+### Install library TA-Lib
+TA-Lib is widely used by trading software developers for perform technical analysis 
+of financial market data. Before you can install TA-Lib you must first install the 
+underlying dependecy ta-lib. Only then can you install TA-Lib. 
+For more information see [GitHub TA-Lib](https://github.com/mrjbq7/ta-lib)
 
 ## Create and run your first bot
 
