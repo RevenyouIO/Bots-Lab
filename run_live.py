@@ -1,12 +1,18 @@
 import requests
-from time import sleep
-from config_live import datasource, buy_signal_settings, revenyou_api_url
+import importlib
+
+from config_live import datasource, buy_signal_settings, revenyou_api_url, bot_name
 from data.data_service import get_live_data_poloniex, get_live_data_cryptocompare
-# choose here which bot function to import
-from rsi import get_buy_or_sell_signal
+
+def import_bot(name):
+    try:
+        return importlib.import_module(name)
+    except ImportError:
+        raise Exception(f'Bot module {name} does not exist')
 
 def run_bot(data):
-    buy_or_sell_signal = get_buy_or_sell_signal(data)
+    bot = import_bot(name = bot_name)
+    buy_or_sell_signal = bot.get_buy_or_sell_signal(data)
     if buy_or_sell_signal is not None:
         revenyou_api_signal = create_revenyou_api_signal(signal = buy_or_sell_signal)
         request = requests.post(url = revenyou_api_url, data = revenyou_api_signal, headers = {'Content-type': 'application/json'})

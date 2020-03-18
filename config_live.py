@@ -1,5 +1,9 @@
-# datasource is poloniex or cryptocompare
+# Name of the file that contains the bot
+bot_name = 'rsi'
+
+# Datasource is poloniex or cryptocompare
 datasource = 'poloniex'
+
 revenyou_api_url = 'https://signal.revenyou.io/api/signal/v1/signal'
 
 # Data settings real time data poloniex
