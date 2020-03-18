@@ -58,8 +58,6 @@ the historical data.
 
 ### Run your bot against the backtesting engine
 Steps:
-1. First you have to import the `get_buy_or_sell_signal` function that you have written. 
-You can can do that by going to the `run_test.py` file. Fill in the name of the file that contains your 
-`get_buy_or_sell_signal` function: `from [file_name_of_bot_function] import get_buy_or_sell_signal`.
+1. In `config_test.py` give the parameter bot_name the right value: `bot_name = '[file_name_of_bot]'`
 2. Then you can execute the following command on the command line: `python run_test.py`. 
 On the Mac : `python3 run_test.py`.

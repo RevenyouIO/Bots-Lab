@@ -1,4 +1,4 @@
-# Name of the file that contains the bot
+# Name of the file (without .py extension!) that contains the bot
 bot_name = 'rsi'
 
 # Example settings for backtesting engine
