@@ -1,25 +1,28 @@
-# datasurce is poloniex or cryptocompare
+# Name of the file that contains the bot
+bot_name = 'rsi'
+
+# Datasource is poloniex or cryptocompare
 datasource = 'poloniex'
-revenYouApiUrl = 'https://signal.revenyou.io/api/signal/v1/signal'
+
+revenyou_api_url = 'https://signal.revenyou.io/api/signal/v1/signal'
 
 # Data settings real time data poloniex
 data_settings_poloniex = {
-    'pair': 'ETH_BTC',  # Use ETH pricing data on the BTC market, ['ETH', 'BTC'] when datasource is cryptocompare
+    'pair': 'ETH_BTC',  # Use ETH pricing data on the BTC market
     'period': 1800,       # Use 1800 second candles
-    'days_history': 100,  # Collect 100 days data
-    'data_source': 'poloniex', # Datasource is polioniex or cryptocompare
+    'days_history': 10,  # Collect 10 days data
 }
 
 # Data settings real time data cryptocompare
 data_settings_cryptocompare = {
-    'pair': ['ETH', 'BTC'],  # Use ETH pricing data on the BTC market, ['ETH', 'BTC'] when datasource is cryptocompare
+    'pair': ['ETH', 'BTC'],  # Use ETH pricing data on the BTC market
     'days_history': 100,  # Collect 100 days data
-    'exchange': 'Bitfinex' # exchange used when datasource is Cryptocompare
+    'exchange': 'Bitfinex' # Exchange that is used
 }
 
 buy_signal_settings = {
-    'signalProvider': '[NAME OF BOT]',
-    'signalProviderKey': '[CODE]',
-    'exchange': 'poloniex',
-    'symbol': 'ETHBTC',
+    'signal_provider': '[NAME OF BOT]',
+    'signal_provider_key': '[CODE]',
+    'exchange': datasource,
+    'symbol': 'ETHBTC', # must be in line with the data settings object pair value!  
 }

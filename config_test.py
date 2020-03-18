@@ -1,3 +1,6 @@
+# Name of the file that contains the bot
+bot_name = 'rsi'
+
 # Example settings for backtesting engine
 sim_params = {
     'capital_base': 10,      # initial capital in BTC

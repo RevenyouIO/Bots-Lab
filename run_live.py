@@ -1,36 +1,43 @@
 import requests
-from time import sleep
-from config_live import datasource, buy_signal_settings, revenYouApiUrl
-from data.data_service import get_real_time_data_poloniex, get_real_time_data_cryptocompare
-# choose here which logic function to import
-from rsi import bot
+import importlib
 
-def runBot(data):
-    signal = bot(data)
-    buy_signal = create_buy_signal(signal)
-    request = requests.post(revenYouApiUrl, data = buy_signal, headers = {'Content-type': 'application/json'})
-    print(request)
+from config_live import datasource, buy_signal_settings, revenyou_api_url, bot_name
+from data.data_service import get_live_data_poloniex, get_live_data_cryptocompare
 
-def create_buy_signal(signal):
-    bs = {    
-        "signalProvider": buy_signal_settings.get('signalProvider'),
-        "signalProviderKey": buy_signal_settings.get('signalProviderKey'),
+def import_bot(name):
+    try:
+        return importlib.import_module(name)
+    except ImportError:
+        raise Exception(f'Bot module {name} does not exist')
+
+def run_bot(data):
+    bot = import_bot(name = bot_name)
+    buy_or_sell_signal = bot.get_buy_or_sell_signal(data)
+    if buy_or_sell_signal is not None:
+        revenyou_api_signal = create_revenyou_api_signal(signal = buy_or_sell_signal)
+        request = requests.post(url = revenyou_api_url, data = revenyou_api_signal, headers = {'Content-type': 'application/json'})
+        print(request)
+
+def create_revenyou_api_signal(signal):
+    api_signal = {    
+        "signalProvider": buy_signal_settings.get('signal_provider'),
+        "signalProviderKey": buy_signal_settings.get('signal_provider_key'),
         "exchange": buy_signal_settings.get('exchange'),
         "symbol": buy_signal_settings.get('symbol'),
         "signalType": signal,
     }
 
-    return bs
+    return api_signal
 
-def getRealTimeData():
+def get_live_data():
     data = None
     if datasource == 'poloniex':
-        data = get_real_time_data_poloniex()
+        data = get_live_data_poloniex()
     elif datasource == 'cryptocompare':
-        data = get_real_time_data_cryptocompare()
+        data = get_live_data_cryptocompare()
 
     return data
 
-# run periodically by cronjob
-realtime_data = getRealTimeData()
-runBot(realtime_data)
+# run periodically through cronjob
+live_data = get_live_data()
+run_bot(data = live_data)
