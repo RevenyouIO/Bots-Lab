@@ -22,7 +22,7 @@ For a user guide see [User guide Pip](https://pip.pypa.io/en/stable/user_guide/)
 
 ### Install your libraries locally or globally (not both!):
 You can choose to install your libraries locally or globally, but not both. When
-installing them locally you will avoid possible conflicting dependecies.
+you have more Python projects it is advisable to install them locally.
 
 ### Install libraries globally with requirements.txt
 Steps:
