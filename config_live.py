@@ -4,7 +4,7 @@ bot_name = 'rsi'
 # Datasource is poloniex or cryptocompare
 datasource = 'poloniex'
 
-revenyou_api_url = 'https://signal.revenyou.io/api/signal/v1/signal'
+revenyou_api_url = 'https://youhex.revenyou.io/api/signal/v1/signal'
 
 # Data settings real time data poloniex
 data_settings_poloniex = {
@@ -21,8 +21,8 @@ data_settings_cryptocompare = {
 }
 
 buy_signal_settings = {
-    'signal_provider': '[NAME OF BOT]',
-    'signal_provider_key': '[CODE]',
+    'signal_provider': 'RsiBot',
+    'signal_provider_key': 'Klp6LidLIE1',
     'exchange': datasource,
     'symbol': 'ETHBTC', # must be in line with the data settings object pair value!  
 }
