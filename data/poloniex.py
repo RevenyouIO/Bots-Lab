@@ -55,7 +55,7 @@ def load_dataframe(pair, period, days_history=30):
     :return:
     """
     try:
-        data = get_past(convert_pair_poloniex(pair), period, days_history)
+        data = get_past(pair, period, days_history)
     except Exception as ex:
         raise ex
 
