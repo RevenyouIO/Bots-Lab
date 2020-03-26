@@ -1,8 +1,8 @@
-bokeh
-pandas
-requests
-TA-Lib
-pytest
-matplotlib
-empyrical
-numpy
+bokeh==2.0.0
+pandas==1.0.3
+requests==2.23.0
+TA-Lib==0.4.17
+pytest==5.4.1
+matplotlib==3.2.1
+empyrical==0.5.3
+numpy==1.18.2
