@@ -1,7 +1,7 @@
 bokeh
 pandas
 requests
-#TA-Lib
+TA-Lib
 pytest
 matplotlib
 empyrical
