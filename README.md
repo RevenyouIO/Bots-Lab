@@ -1,7 +1,7 @@
 # Bot-Backtesting
 
 Open Source Backtesting Tool. With this tool you can test your bot with historical data to see how it performs.
-The results will be compared against the benchmark. See `botsjabloon.py` and `config_test.py`
+The results will be compared against the benchmark. See `bot_template.py` and `config_test.py`
 for more information.
 
 This project also allows you to create a bot that runs "live", e.g. a bot that sends signals to buy and sell 
@@ -92,7 +92,7 @@ This can be done using `cron` on macOS and Linux:
 # Create and run your first bot
 
 ## Writing your first bot
-See the `botsjabloon.py` for an explanation about writing your first bot. 
+See the `bot_template.py` for an explanation about writing your first bot. 
 This means you have to implement the function `get_buy_or_sell_signal` and store that 
 function in a python file (extension `.py`). For an example see `rsi.py`.
 
