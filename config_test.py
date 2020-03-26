@@ -17,7 +17,7 @@ datasource = 'poloniex'
 # Example data settings historical data poloniex
 # For more information: https://poloniex.com/
 data_settings_poloniex = {
-    'pair': 'ETH_BTC',  # Use ETH pricing data on the BTC market
+    'pair': 'BTC_ETH',  # Use ETH pricing data on the BTC market
     'period': 1800,       # Use 1800 second candles
     'days_history': 100,  # Collect 100 days data
 }
