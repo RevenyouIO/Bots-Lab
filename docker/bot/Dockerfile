@@ -29,6 +29,10 @@ RUN curl -fsSLO "$SUPERCRONIC_URL" \
  && mv "$SUPERCRONIC" "/usr/local/bin/${SUPERCRONIC}" \
  && ln -s "/usr/local/bin/${SUPERCRONIC}" /usr/local/bin/supercronic
 
+# Create a user to run as
+RUN groupadd --gid 1024 bot
+RUN useradd --gid 1024 --uid=10240 --no-create-home --home-dir /opt/bot bot
+
 WORKDIR /opt/bot
 
 # Install Python requirements
@@ -43,6 +47,12 @@ COPY docker/bot/supercronic.conf supercronic.conf
 
 RUN mkdir /opt/bot/generated
 VOLUME /opt/bot/generated
+
+# Ensure user "bot" owns all files
+RUN chown -R bot /opt/bot
+
+# Run as user "bot"
+USER bot
 
 # Run in test mode by default. Can be overridden from command line or docker-compose file to run in production mode.
 CMD python3 run_test.py
