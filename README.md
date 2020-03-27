@@ -16,7 +16,9 @@ This file contains instructions to get a development environment up and running
 The easiest way to get up and running is by using Docker. When using Docker, you won't have to install any
 platform-specific dependencies (e.g. Python). Only Docker itself is required.
 
-1. If necessary, install Docker from https://www.docker.com/
+1. If necessary, install Docker Desktop (for Windows and Mac) from https://www.docker.com/get-started.
+   On Linux (e.g. Ubuntu): install Docker and Docker Compose using the instructions at 
+   https://docs.docker.com/install/linux/docker-ce/ubuntu/
 2. Clone the Bot-Backtesting project to your computer using Git if you haven't already done so. 
 3. Open a command prompt, `cd` to the project directory and run one of the following commands:
 
