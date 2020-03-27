@@ -1,23 +1,23 @@
 @ECHO OFF
 
 SET MODE=%1
-SET OK=0
 
-IF %MODE%==test (
+IF "%MODE%"=="test" (
     docker-compose -f docker/docker-compose-test.yml up --build
-    SET OK=1
+    GOTO :END
 )
 
-IF %MODE%==live (
+IF "%MODE%"=="live" (
     docker-compose -f docker/docker-compose-live.yml up --build -d
-    SET OK=1
+    GOTO :END
 )
 
-IF %MODE%==stop_live (
+IF "%MODE%"=="stop_live" (
     docker-compose -f docker/docker-compose-live.yml down
-    SET OK=1
+    GOTO :END
 )
 
-IF %OK%==0 (
-    ECHO Run this script with one of the following arguments: test, live, stop_live
-)
+:USAGE
+ECHO Run this script with one of the following arguments: test, live, stop_live
+
+:END
