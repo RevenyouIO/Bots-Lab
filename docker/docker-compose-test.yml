@@ -5,3 +5,5 @@ services:
       context: ..
       dockerfile: docker/bot/Dockerfile
     command: python3 run_test.py
+    volumes:
+    - ../generated:/opt/bot/generated

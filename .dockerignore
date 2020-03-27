@@ -6,3 +6,4 @@
 venv
 .git
 .DS_Store
+generated

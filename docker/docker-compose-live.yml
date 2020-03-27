@@ -6,3 +6,5 @@ services:
       context: ..
       dockerfile: docker/bot/Dockerfile
     command: /usr/local/bin/supercronic supercronic.conf
+    volumes:
+    - ../generated:/opt/bot/generated

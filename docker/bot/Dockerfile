@@ -29,7 +29,7 @@ RUN curl -fsSLO "$SUPERCRONIC_URL" \
  && mv "$SUPERCRONIC" "/usr/local/bin/${SUPERCRONIC}" \
  && ln -s "/usr/local/bin/${SUPERCRONIC}" /usr/local/bin/supercronic
 
-WORKDIR /opt/bots
+WORKDIR /opt/bot
 
 # Install Python requirements
 COPY requirements.txt ./
@@ -40,6 +40,9 @@ COPY . .
 
 # Copy SuperCronic configuration file into place
 COPY docker/bot/supercronic.conf supercronic.conf
+
+RUN mkdir /opt/bot/generated
+VOLUME /opt/bot/generated
 
 # Run in test mode by default. Can be overridden from command line or docker-compose file to run in production mode.
 CMD python3 run_test.py
