@@ -203,7 +203,7 @@ class YouEngine:
 
         # BENCHMARK
         percent_change = helpers.percent_change(self.data['base_equity'][0],
-                                                self.data['base_equity'][-2])
+                                                self.data['base_equity'][-1])
 
         bench = [
             ("Capital", self.account.initial_capital, ""),
