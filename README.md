@@ -5,20 +5,55 @@ The results will be compared against the benchmark. See `bot_template.py` and `c
 for more information.
 
 This project also allows you to create a bot that runs "live", e.g. a bot that sends signals to buy and sell 
-based on actual data.
+based on actual data. To run a bot in live mode, run it on a (virtual) server. A Linux-based server is usually 
+the cheapest and most efficient option. 
 
-This file contains instructions to get a development environment up and running
-(see first and second section)
+The following guidelines apply for a Linux-based server: 
 
-# Getting up and running
- 
+* The server should have a recent 64-bit version of Ubuntu Linux as its operating system. Using version 18.04
+  or 20.04 (when it becomes available) is recommended.
+* The server should have at least 1 GB of memory and 20 GB of disk space.
+* You need to have administrative access (via root or sudo) to the server via a terminal (e.g SSH). 
+
+If you want to run the bot on a server your own infrastructure contact your systems or network administrator.  
+You can order suitable virtual machines from the following companies:
+
+* DigitalOcean: https://www.digitalocean.com/products/droplets/
+* Microsoft: https://azure.microsoft.com/en-us/services/virtual-machines/
+
+Once you have a server available, follow the instructions in the first section to allow it to run this project.
+
+This README contains the following:
+
+* Instructions to get a development and live environment up and running.
+  See [Preparing your development or live environment](#preparing-your-development-or-live-environment).
+
+* Instructions to create your own bot.
+  See [Create and run your own bot](#create-and-run-your-own-bot).
+
+
+# Preparing your development or live environment
+
+To run an existing bot or to create your own, you will need to prepare your computer to allow this project
+to run. To do this, follow the instructions in this section.
+
+For instructions to create your own bot, see [Create and run your own bot](#create-and-run-your-own-bot).
+
 ## Recommended: running the bot using Docker
 The easiest way to get up and running is by using Docker. When using Docker, you won't have to install any
 platform-specific dependencies (e.g. Python). Only Docker itself is required.
 
-1. If necessary, install Docker Desktop (for Windows and Mac) from https://www.docker.com/get-started.
-   On Linux (e.g. Ubuntu): install Docker and Docker Compose using the instructions at 
-   https://docs.docker.com/install/linux/docker-ce/ubuntu/
+1. If necessary, install Docker.
+ 
+   On Windows and macOS: install Docker Desktop from https://www.docker.com/get-started.
+   
+   On Ubuntu Linux: install Docker and Docker Compose using the instructions on the following pages:
+  
+   * https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-18-04
+   * https://www.digitalocean.com/community/tutorials/how-to-install-docker-compose-on-ubuntu-18-04
+      
+   These instructions should also apply for servers from other suppliers. A Docker Hub account is not required. 
+   
 2. Clone the Bot-Backtesting project to your computer using Git if you haven't already done so. 
 3. Open a command prompt, `cd` to the project directory and run one of the following commands:
 
@@ -39,7 +74,7 @@ Remarks:
 
 * To **stop the bot in live mode**, run `./run_bot.sh stop_live` or `run_bot.cmd stop_live`.
 
-* After changing any of the files (see [Create and run your first bot](#create-and-run-your-first-bot) below),
+* After changing any of the files (see [Create and run your own bot](#create-and-run-your-own-bot) below),
   run the test command from the table above again to test your changes. To update the live version with your
   changes, run the `stop_live` command and start the live version again.
 
@@ -91,7 +126,14 @@ This can be done using `cron` on macOS and Linux:
 
 * Save the file and exit the editor.  
 
-# Create and run your first bot
+For a basic introduction to use the most common editors available on macOS and Linux, see this article:
+https://www.linux.com/topic/desktop/introduction-text-editors-get-know-nano-and-vim/
+
+# Create and run your own bot
+
+This project only contains a simple bot based on the RSI (Relative Strength Index) algorithm
+as an example. You can find this bot in `rsi.py`. To create your own bot, follow the instructions
+in this section.
 
 ## Writing your first bot
 See the `bot_template.py` for an explanation about writing your first bot. 
