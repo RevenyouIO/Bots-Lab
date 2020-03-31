@@ -8,10 +8,10 @@ sim_params = {
         'Long': 0.0015,      # fee settings for Long
         'Short': 0.0015,     # fee settings for Short
     },
-    'data_frequency': '4H'    # Time frame to use (see /helpers/timeframe_resampler.py for more info)
+    'data_frequency': '4U'    # Time frame to use (see /helpers/timeframe_resampler.py for more info)
 }
 
-# Datasource is poloniex or cryptocompare
+# Datasource is poloniex, cryptocompare or binance
 datasource = 'poloniex'
 
 # Example data settings historical data poloniex
@@ -28,4 +28,12 @@ data_settings_cryptocompare = {
     'pair': ['ETH', 'BTC'],  # Use ETH pricing data on the BTC market
     'days_history': 100,  # Collect 100 days data
     'exchange': 'Bitfinex' # exchange used when datasource is Cryptocompare
+}
+
+# Example data settings historical data binance
+# For more information: https://www.binance.com/
+data_settings_binance = {
+    'pair': 'ETHBTC',  # Use ETH pricing data on the BTC market
+    'period': '4h',   # Use 4 hour candles
+    'limit': 100,  # Collect 100 candles
 }

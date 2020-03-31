@@ -16,7 +16,7 @@ def get_buy_or_sell_signal(data):
     decrease = 0
     for x in range(1, 15):
         candle = data.iloc[x * -1]
-        difference = candle['close'] - candle['open']
+        difference = float(candle['close']) - float(candle['open'])
         if difference > 0:
             increase += difference
         elif difference < 0:
@@ -29,7 +29,7 @@ def get_buy_or_sell_signal(data):
     decrease = 0
     for x in range(2, 16):
         candle = data.iloc[x * -1]
-        difference = candle['close'] - candle['open']
+        difference = float(candle['close']) - float(candle['open'])
         if difference > 0:
             increase += difference
         elif difference < 0:

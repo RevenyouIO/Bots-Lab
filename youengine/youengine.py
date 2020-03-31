@@ -98,7 +98,7 @@ class YouEngine:
             self.account.date = date
             # TODO Replace by pandas DataFrame
             self.account.equity.append(
-                (date, self.account.total_value(tick['close'])))
+                (date, self.account.total_value(float(tick['close']))))
 
             # Execute trading logic
             historic_data = self.data.loc[:date]
@@ -121,13 +121,13 @@ class YouEngine:
 
     def handle_buy_signal(self, buy_signal, current_candle):
         if buy_signal == 'sell':
-            exit_price = current_candle['close']
+            exit_price = float(current_candle['close'])
             for position in self.account.positions:
                 if position.type_ == 'Long':
                     self.account.close_position(position, 1, exit_price)
         elif buy_signal == 'buy':
             risk = 0.03
-            entry_price = current_candle['close']
+            entry_price = float(current_candle['close'])
             entry_capital = self.account.buying_power * risk
             if entry_capital >= 0.00001:
                 self.account.enter_position('Long', entry_capital, entry_price)
@@ -139,8 +139,8 @@ class YouEngine:
 
         perf['price'] = perf['close']
 
-        shares = self.account.initial_capital / perf.iloc[0]['close']
-        perf['base_equity'] = [price * shares for price in perf['close']]
+        shares = self.account.initial_capital / float(perf.iloc[0]['close'])
+        perf['base_equity'] = [float(price) * shares for price in perf['close']]
         perf['equity'] = [e for _, e in self.account.equity]
 
         # BENCHMARK
@@ -191,9 +191,10 @@ class YouEngine:
             " Results (freq {}) ".format(self.sim_params['data_frequency']))
         print(title + "\n")
 
-        shares = self.account.initial_capital / self.data.iloc[0]['close']
-        self.data['base_equity'] = [price * shares for price in
+        shares = self.account.initial_capital / float(self.data.iloc[0]['close'])
+        self.data['base_equity'] = [float(price) * shares for price in
                                     self.data['close']]
+        print(self.data['base_equity'])
         self.data['equity'] = [e for _, e in self.account.equity]
 
         # STRING FORMATS
@@ -202,7 +203,7 @@ class YouEngine:
 
         # BENCHMARK
         percent_change = helpers.percent_change(self.data['base_equity'][0],
-                                                self.data['base_equity'][-1])
+                                                self.data['base_equity'][-2])
 
         bench = [
             ("Capital", self.account.initial_capital, ""),

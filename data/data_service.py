@@ -1,6 +1,7 @@
 from data import poloniex as px
 from data import cryptocompare as cc
-from config_test import data_settings_poloniex, data_settings_cryptocompare
+from data import binance as bn
+from config_test import data_settings_poloniex, data_settings_cryptocompare, data_settings_binance
 from config_live import data_settings_poloniex as dsp, data_settings_cryptocompare as dsc
 
 def get_historical_data_poloniex():
@@ -17,6 +18,13 @@ def get_historical_data_cryptocompare():
 
     return cc.load_dataframe(pair, days_history, exchange)
 
+def get_historical_data_binance():
+    pair = data_settings_binance.get('pair')
+    period = data_settings_binance.get('period')
+    limit = data_settings_binance.get('limit')
+
+    return bn.load_dataframe(pair, period, limit)
+
 def get_live_data_poloniex():
     pair = dsp.get('pair')
     period = dsp.get('period')
@@ -32,6 +40,14 @@ def get_live_data_cryptocompare():
 
     # return live data from cryptocompare ((historical and/or realtime))
     return cc.load_dataframe(pair, days_history, exchange)
+
+def get_live_data_binance():
+    pair = data_settings_binance.get('pair')
+    period = data_settings_binance.get('period')
+    limit = data_settings_binance.get('limit')
+
+    # return live data from binance ((historical and/or realtime))
+    return bn.load_dataframe(pair, period, limit)
 
 
 
