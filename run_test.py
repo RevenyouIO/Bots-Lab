@@ -19,8 +19,6 @@ elif datasource == 'cryptocompare':
     historical_data = get_historical_data_cryptocompare()
 elif datasource == 'binance':
     historical_data = get_historical_data_binance()
-# print(datasource)
-# print(historical_data)
 if historical_data is None:
     exit()
 

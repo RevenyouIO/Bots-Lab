@@ -3,7 +3,7 @@ import uuid
 import importlib
 
 from config_live import datasource, buy_signal_settings, revenyou_api_url, bot_name
-from data.data_service import get_live_data_poloniex, get_live_data_cryptocompare
+from data.data_service import get_live_data_poloniex, get_live_data_cryptocompare, get_live_data_binance
 
 def import_bot(name):
     try:
@@ -49,6 +49,8 @@ def get_live_data():
         data = get_live_data_poloniex()
     elif datasource == 'cryptocompare':
         data = get_live_data_cryptocompare()
+    elif datasource == 'binance':
+        data = get_live_data_binance()
 
     return data
 

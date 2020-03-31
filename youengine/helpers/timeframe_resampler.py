@@ -22,7 +22,7 @@ def resample(data, period='D'):
     if period[-1:] not in ['T', 'H', 'D', 'W', 'M']:
         logger.warning('Unknown period for resample: %s', period)
         return data
-    print(data)
+
     data = data.resample(period).apply({
         'open': 'first', 'high': 'max', 'low': 'min', 'close': 'last',
         'volume': 'sum',

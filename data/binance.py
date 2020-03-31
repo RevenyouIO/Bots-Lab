@@ -53,9 +53,18 @@ def load_dataframe(symbol, interval, limit=100):
     if 'error' in data:
         raise Exception("Bad response: {}".format(data['error']))
 
-    print(data)
+    # rename columns
     df = pd.DataFrame(data, columns=['date', 'open', 'high', 'low', 'close', 
         'volume', 'close_time', 'qa_volume', 'trades', 'tbba_volume', 'tbqa_volume', 'ignore'])
+
+    # convert miliseconds to date time and make date index
     df['date'] = pd.to_datetime(df['date'], unit='ms')
+    df = df.set_index(['date'])
+
+    # convert numeric string values to float
+    columns = ['open', 'high', 'low', 'close', 
+        'volume', 'close_time', 'qa_volume', 'trades', 'tbba_volume', 'tbqa_volume']
+    for column in columns:
+        df[column] = df[column].astype(float)
 
     return df
