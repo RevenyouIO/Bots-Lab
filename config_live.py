@@ -20,6 +20,13 @@ data_settings_cryptocompare = {
     'exchange': 'Bitfinex' # Exchange that is used
 }
 
+# Data settings real time data binance
+data_settings_binance = {
+    'pair': 'ETHBTC',  # Use ETH pricing data on the BTC market
+    'period': '4h',   # Use 4 hour candles
+    'limit': 100,  # Collect 100 candles
+}
+
 buy_signal_settings = {
     'signal_provider': '[NAME OF BOT]',
     'signal_provider_key': '[KEY]',

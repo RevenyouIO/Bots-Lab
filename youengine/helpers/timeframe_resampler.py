@@ -25,7 +25,7 @@ def resample(data, period='D'):
 
     data = data.resample(period).apply({
         'open': 'first', 'high': 'max', 'low': 'min', 'close': 'last',
-        'volume': 'sum',
+        'volume': 'sum'
     }).dropna()
     data['date'] = data.index
 

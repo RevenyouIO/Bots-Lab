@@ -3,7 +3,7 @@ import importlib
 from youengine.youengine import YouEngine
 from youengine.helpers.analyze import analyze_mpl, analyze_bokeh
 from config_test import sim_params, datasource, bot_name
-from data.data_service import get_historical_data_poloniex, get_historical_data_cryptocompare
+from data.data_service import get_historical_data_poloniex, get_historical_data_cryptocompare, get_historical_data_binance
 
 def import_bot(name):
     try:
@@ -17,7 +17,8 @@ if datasource == 'poloniex':
     historical_data = get_historical_data_poloniex()
 elif datasource == 'cryptocompare':
     historical_data = get_historical_data_cryptocompare()
-
+elif datasource == 'binance':
+    historical_data = get_historical_data_binance()
 if historical_data is None:
     exit()
 

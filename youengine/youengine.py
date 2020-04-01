@@ -24,6 +24,7 @@ class YouEngine:
         'capital_base': 10e5,
         'data_frequency': 'D',
         'fee': FEES,  # Fees in percent of trade amount
+        'resample': True
     }
     records = []
     performance = []
@@ -89,8 +90,11 @@ class YouEngine:
 
         # TODO Add filter between start & end session from sim_params
 
-        # resample data frame to 'D' by default
-        self.data = resample(data, self.sim_params.get('data_frequency', 'D'))
+        if self.sim_params.get('resample'):
+            # resample data frame to 'D' by default
+            self.data = resample(data, self.sim_params.get('data_frequency', 'D'))
+        else:
+            self.data = data
 
         # start cycle
         for date, tick in self.data.iterrows():
