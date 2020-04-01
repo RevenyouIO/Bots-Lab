@@ -198,7 +198,6 @@ class YouEngine:
         shares = self.account.initial_capital / self.data.iloc[0]['close']
         self.data['base_equity'] = [price * shares for price in
                                     self.data['close']]
-        print(self.data['base_equity'])
         self.data['equity'] = [e for _, e in self.account.equity]
 
         # STRING FORMATS

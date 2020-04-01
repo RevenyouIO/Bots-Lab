@@ -20,7 +20,7 @@ def get_now(symbol):
     return response.json()
 
 
-def get_past(symbol, interval, days_history=30, limit=600):
+def get_past(symbol, interval, limit=600):
     """
     param symbol: market pair
     param interval: period of the candles
