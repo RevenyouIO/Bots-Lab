@@ -24,6 +24,7 @@ class YouEngine:
         'capital_base': 10e5,
         'data_frequency': 'D',
         'fee': FEES,  # Fees in percent of trade amount
+        'resample': True
     }
     records = []
     performance = []

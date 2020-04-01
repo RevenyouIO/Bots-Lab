@@ -3,12 +3,12 @@ bot_name = 'rsi'
 
 # Example settings for backtesting engine
 sim_params = {
-    'capital_base': 10,      # initial capital in BTC
+    'capital_base': 10,      # Initial capital in BTC
     'fee': {
-        'Long': 0.0015,      # fee settings for Long
-        'Short': 0.0015,     # fee settings for Short
+        'Long': 0.0015,      # Fee settings for Long
+        'Short': 0.0015,     # Fee settings for Short
     },
-    'resample': False,
+    'resample': False, # For binance do not resample
     'data_frequency': '4H'  # Time frame to use (see /helpers/timeframe_resampler.py for more info)
 }
 
@@ -19,7 +19,7 @@ datasource = 'binance'
 # For more information: https://poloniex.com/
 data_settings_poloniex = {
     'pair': 'BTC_ETH',  # Use ETH pricing data on the BTC market
-    'period': 14400,       # Use 1800 second candles
+    'period': 1800,       # Use 1800 second candles
     'days_history': 100,  # Collect 100 days data
 }
 
@@ -35,6 +35,6 @@ data_settings_cryptocompare = {
 # For more information: https://www.binance.com/
 data_settings_binance = {
     'pair': 'ETHBTC',  # Use ETH pricing data on the BTC market
-    'period': '4h',   # Use 30 minute candles
+    'period': '4h',   # Use 4 hour candles
     'limit': 100,  # Collect 100 candles
 }

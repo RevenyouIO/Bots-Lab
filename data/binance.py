@@ -12,7 +12,6 @@ def get_now(symbol):
     param symbol: market pair
     return: 24 hour ticket data
     """
-
     params = {
         'symbol': symbol,
     }
@@ -43,7 +42,7 @@ def load_dataframe(symbol, interval, limit=100):
     param symbol: market pair
     param period: period of the candles
     param limit: maximum number of candles to be returned
-    return: histtorical data in the form of a pandas Dataframe
+    return: list of candles in the form of a pandas Dataframe
     """
     try:
         data = get_past(symbol, interval, limit)
@@ -55,15 +54,15 @@ def load_dataframe(symbol, interval, limit=100):
 
     # rename columns
     df = pd.DataFrame(data, columns=['date', 'open', 'high', 'low', 'close', 
-        'volume', 'close_time', 'qa_volume', 'trades', 'tbba_volume', 'tbqa_volume', 'ignore'])
+        'volume', 'close_time', 'qa_volume', 'nof_trades', 'tbba_volume', 'tbqa_volume', 'ignore'])
 
-    # convert miliseconds to date time and make date index
+    # convert dates (milliseconds) to date time and make date index
     df['date'] = pd.to_datetime(df['date'], unit='ms')
+    df['close_time'] = pd.to_datetime(df['close_time'], unit='ms')
     df = df.set_index(['date'])
 
     # convert numeric string values to float
-    columns = ['open', 'high', 'low', 'close', 
-        'volume', 'close_time', 'qa_volume', 'trades', 'tbba_volume', 'tbqa_volume']
+    columns = ['open', 'high', 'low', 'close', 'volume', 'qa_volume', 'tbba_volume', 'tbqa_volume']
     for column in columns:
         df[column] = df[column].astype(float)
 
