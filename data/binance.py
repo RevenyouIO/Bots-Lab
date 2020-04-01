@@ -47,6 +47,7 @@ def load_dataframe(symbol, interval, limit=100):
     try:
         data = get_past(symbol, interval, limit)
     except Exception as ex:
+        logger.error('Error trying to get historical charts data from the binance api: ' + str(ex))
         raise ex
 
     if 'error' in data:

@@ -90,7 +90,7 @@ class YouEngine:
 
         # TODO Add filter between start & end session from sim_params
 
-        if (self.sim_params.get('resample')):
+        if self.sim_params.get('resample'):
             # resample data frame to 'D' by default
             self.data = resample(data, self.sim_params.get('data_frequency', 'D'))
         else:
