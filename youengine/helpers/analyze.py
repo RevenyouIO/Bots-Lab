@@ -21,7 +21,7 @@ def analyze_bokeh(algo, title=None, show_trades=False):
     """
     # TODO Replace to YouEngine class
 
-    bokeh.plotting.output_file("chart.html", title=title)
+    bokeh.plotting.output_file("generated/chart.html", title=title)
     p = bokeh.plotting.figure(x_axis_type="datetime", plot_width=1000,
                               plot_height=400,
                               title=title)

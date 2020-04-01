@@ -1,0 +1,9 @@
+version: '3.7'
+services:
+  bot:
+    build:
+      context: ..
+      dockerfile: docker/bot/Dockerfile
+    command: python3 run_test.py
+    volumes:
+    - ../generated:/opt/bot/generated

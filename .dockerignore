@@ -1,0 +1,9 @@
+.idea
+*.iml
+**/*.sqlite3
+**/__pycache__
+**/*.pyc
+venv
+.git
+.DS_Store
+generated

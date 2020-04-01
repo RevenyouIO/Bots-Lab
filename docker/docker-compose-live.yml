@@ -1,0 +1,10 @@
+version: '3.7'
+services:
+  bot:
+    restart: always
+    build:
+      context: ..
+      dockerfile: docker/bot/Dockerfile
+    command: /usr/local/bin/supercronic supercronic.conf
+    volumes:
+    - ../generated:/opt/bot/generated

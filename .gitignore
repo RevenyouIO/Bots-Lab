@@ -5,5 +5,10 @@ __pycache__/
 # Editors
 .vscode/
 .idea/
+*.iml
 
 chart.html
+
+# Virtual environment for Python
+venv/
+virtualenv/
