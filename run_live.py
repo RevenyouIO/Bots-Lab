@@ -17,7 +17,7 @@ def run_bot(data):
     # for now the revenyou api accepts only buy signals!
     if buy_or_sell_signal == 'buy':
         revenyou_api_signal = create_revenyou_buy_signal()
-        request = requests.post(url = revenyou_api_url.strip("\n"), data = revenyou_api_signal, headers = {'content-type': 'application/json'})
+        request = requests.post(url = revenyou_api_url.strip("\n"), json = revenyou_api_signal, headers = {'content-type': 'application/json'})
         print(request.json())
 
 def create_revenyou_buy_signal():
@@ -32,12 +32,20 @@ def create_revenyou_buy_signal():
         'buyTTLSec': buy_signal_settings.get('buy_ttl_sec'),
         'takeProfit': [
             {
-                'amountPercentage': '100',
-                'pricePercentage': buy_signal_settings.get('take_profit_price_percentage')
+                'amountPercentage': '60',
+                'pricePercentage': buy_signal_settings.get('take_profit_price_percentage_60')
+            },
+            {
+                'amountPercentage': '40',
+                'pricePercentage': buy_signal_settings.get('take_profit_price_percentage_40')
             }
         ],
         'stopLoss': {
             'pricePercentage': buy_signal_settings.get('stop_loss_price_percentage')
+        },
+        'panicSell': {
+            'pricePercentage': buy_signal_settings.get('panic_sell_price_percentage'),
+            'sellPriceDeviationPercentage': buy_signal_settings.get('panic_sell_price_deviation_percentage')
         }
     }
 
