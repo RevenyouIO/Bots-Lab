@@ -95,7 +95,7 @@ of financial market data. Before you can install TA-Lib you must first install t
 underlying dependency ta-lib. Only then can you install TA-Lib. 
 
 To install ta-lib: run `pip3 install ta-lib`. After that you can install TA-Lib.
-See [Install Python dependencies](###Install-Python-dependencies)
+See [Install Python dependencies](#Install-Python-dependencies)
 
 On Linux, follow the instructions on [installing TA-lib from source](https://github.com/mrjbq7/ta-lib#linux).
 
