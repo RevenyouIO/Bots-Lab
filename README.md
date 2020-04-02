@@ -94,7 +94,8 @@ TA-Lib is widely used by trading software developers for perform technical analy
 of financial market data. Before you can install TA-Lib you must first install the 
 underlying dependency ta-lib. Only then can you install TA-Lib. 
 
-On macOS, you can install TA-Lib using Homebrew: `brew install ta-lib`
+To install ta-lib: run `pip3 install ta-lib`. After that you can install TA-Lib.
+See [Install Python dependencies](###Install-Python-dependencies)
 
 On Linux, follow the instructions on [installing TA-lib from source](https://github.com/mrjbq7/ta-lib#linux).
 
