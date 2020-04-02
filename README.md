@@ -69,10 +69,12 @@ Remarks:
 
 * In **testing mode**, the bot runs once and exits automatically. Output is shown immediately.
    
-* In **live mode**, the bot runs periodically in the background. Also, the bot will start automatically when Docker 
-  starts. To show output from the bot, run `docker logs docker_bot_1`.
+* In **live mode**, the bot runs periodically in the background. By default the bot runs every 30 minutes. 
+  Also, the bot will start automatically when Docker starts. To show output from the bot, run `docker logs docker_bot_1`.
 
 * To **stop the bot in live mode**, run `./run_bot.sh stop_live` or `run_bot.cmd stop_live`.
+
+* You can add **extra dependecies** by adding them to the `requirements.txt` file. See the remark below.
 
 * After changing any of the files (see [Create and run your own bot](#create-and-run-your-own-bot) below),
   run the test command from the table above again to test your changes. To update the live version with your
@@ -101,7 +103,8 @@ For more information see [GitHub TA-Lib](https://github.com/mrjbq7/ta-lib)
 ### Install Python dependencies
 On Linux and macOS: run `bash create_venv.sh` from a terminal. This script will
 create a virtual Python environment in the directory `venv` below the project directory.
-This virtualenv contains all required Python dependencies.
+This virtualenv contains all required Python dependencies. They are listed in `requirements.txt`.
+After adding extra dependencies to this file you must run `bash create_venv.sh` again.  
 
 ### Running the bot in test mode
 
