@@ -1,5 +1,5 @@
 # Name of the file (without .py extension!) that contains the bot
-bot_name = 'rsi'
+bot_name = 'bots.rsi'
 
 # Example settings for backtesting engine
 sim_params = {
@@ -8,12 +8,12 @@ sim_params = {
         'Long': 0.0015,      # Fee settings for Long
         'Short': 0.0015,     # Fee settings for Short
     },
-    'resample': False, # For binance do not resample
+    'resample': True, # For binance do not resample
     'data_frequency': '4H'  # Time frame to use (see /helpers/timeframe_resampler.py for more info)
 }
 
 # Datasource is poloniex, cryptocompare or binance
-datasource = 'binance'
+datasource = 'poloniex'
 
 # Example data settings historical data poloniex
 # For more information: https://poloniex.com/
