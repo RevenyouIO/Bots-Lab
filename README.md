@@ -1,7 +1,7 @@
 # Bot-Backtesting
 
 Open Source Backtesting Tool. With this tool you can test your bot with historical data to see how it performs.
-The results will be compared against the benchmark. See `examples/bot_template.py` and `config_test.py`
+The results will be compared against the benchmark. See `bots/bot_template.py` and `config_test.py`
 for more information.
 
 This project also allows you to create a bot that runs "live", e.g. a bot that sends signals to buy and sell 
