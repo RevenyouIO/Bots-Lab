@@ -136,14 +136,14 @@ https://www.linux.com/topic/desktop/introduction-text-editors-get-know-nano-and-
 # Create and run your own bot
 
 This project uses by default a simple bot based on the RSI (Relative Strength Index) algorithm. 
-You can find this bot in `examples/rsi.py`. This `examples` folder also contains `ema.py` and 
+You can find this bot in `bots/rsi.py`. This `bots` folder also contains `ema.py` and 
 `sma.py`, two bots that use the Ta-Lib library. To create your own bot, follow the 
 instructions in this section of the README.
 
 ## Writing your first bot
-See `examples.bot_template.py` for an explanation about writing your first bot. 
+See `bots/bot_template.py` for an explanation about writing your first bot. 
 This means you have to implement the function `get_buy_or_sell_signal` and store that 
-function in a python file (extension `.py`) in the `examples` folder.
+function in a python file (extension `.py`) in the `bots` folder.
 
 ## Configuration Backtesting tool
 See `config_test.py` for the simulation parameters of the Backtesting tool and the data settings for 
@@ -151,13 +151,13 @@ the historical data.
 
 ## Run your bot against the backtesting engine
 Steps:
-1. In `config_test.py` give the parameter `bot_name` the right value: `bot_name = 'examples.[file_name_of_bot]'`
+1. In `config_test.py` give the parameter `bot_name` the right value: `bot_name = 'bots.[file_name_of_bot]'`
 2. Execute the bot in testing mode using the instructions above, e.g. with the recommended Docker command:
    `run_bot.sh test` (or `run_bot.cmd test` on Windows).
 
 ## Run your bot live
 Steps:
-1. In `config_live.py` give the parameter `bot_name` the right value: `bot_name = 'examples.[file_name_of_bot]'`
+1. In `config_live.py` give the parameter `bot_name` the right value: `bot_name = 'bots.[file_name_of_bot]'`
 2. If needed, change the interval in the configuration file `docker/bot/supercronic.conf`
 2. Execute the bot in live mode using the instructions above, e.g. with the recommended Docker command:
    `run_bot.sh live` (or `run_bot.cmd live` on Windows).

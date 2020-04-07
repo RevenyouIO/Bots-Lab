@@ -1,5 +1,5 @@
 # Name of the file (without .py extension!) that contains the bot
-bot_name = 'rsi'
+bot_name = 'bots.rsi'
 
 # Datasource is poloniex or cryptocompare
 datasource = 'poloniex'

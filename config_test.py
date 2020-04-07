@@ -1,5 +1,5 @@
 # Name of the file (without .py extension!) that contains the bot
-bot_name = 'examples.rsi'
+bot_name = 'bots.rsi'
 
 # Example settings for backtesting engine
 sim_params = {
