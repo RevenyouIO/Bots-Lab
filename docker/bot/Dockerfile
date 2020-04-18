@@ -54,5 +54,7 @@ RUN chown -R bot /opt/bot
 # Run as user "bot"
 USER bot
 
+ENV LD_LIBRARY_PATH="/usr/local/lib:$LD_LIBRARY_PATH"
+
 # Run in test mode by default. Can be overridden from command line or docker-compose file to run in production mode.
 CMD python3 run_test.py
