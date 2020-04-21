@@ -89,23 +89,32 @@ For this project Python 3 is needed. Mac users take note: Python is already inst
 as part of your operating system, but this will not suffice. 
 For downloading Python 3 see [Download Python](https://www.python.org/downloads/).
 
+*Note:* On Windows, download and install the 32-bit version of Python (this is the default
+download option). This makes installing TA-Lib easier.
+
 ### Install library TA-Lib
 TA-Lib is widely used by trading software developers for perform technical analysis 
-of financial market data. Before you can install TA-Lib you must first install the 
-underlying dependency ta-lib. Only then can you install TA-Lib. 
+of financial market data. Before you can use TA-Lib from Python you must first install the 
+underlying TA-Lib library.
 
-To install ta-lib: run `pip3 install ta-lib`. After that you can install TA-Lib.
-See [Install Python dependencies](#Install-Python-dependencies)
+To install the underlying dependency TA-lib: 
 
-On Linux, follow the instructions on [installing TA-lib from source](https://github.com/mrjbq7/ta-lib#linux).
+* On Mac OS: install TA-lib using Brew: `brew install ta-lib`
+* On Linux, follow the instructions on [installing TA-Lib from source](https://github.com/mrjbq7/ta-lib#linux).
+* On Windows, download prebuilt Python packages (wheels) of TA-Lib for your Python version from
+  https://www.lfd.uci.edu/~gohlke/pythonlibs/#ta-lib and place them in the `wheels` folder.
 
-For more information see [GitHub TA-Lib](https://github.com/mrjbq7/ta-lib)
+For more information:
+
+* [TA-Lib: Technical Analysis Library](https://ta-lib.org/)
+* [TA-Lib Python package GitHub page](https://github.com/mrjbq7/ta-lib)
 
 ### Install Python dependencies
-On Linux and macOS: run `bash create_venv.sh` from a terminal. This script will
-create a virtual Python environment in the directory `venv` below the project directory.
+On Linux and macOS: run `bash create_venv.sh` from a terminal. On Windows run `create_venv.cmd`.
+
+These scripts will create a virtual Python environment in the directory `venv` below the project directory.
 This virtualenv contains all required Python dependencies. They are listed in `requirements.txt`.
-After adding extra dependencies to this file you must run `bash create_venv.sh` again.  
+After adding extra dependencies to this file you must run `bash create_venv.sh` or `create_venv.cmd` again.  
 
 ### Running the bot in test mode
 
