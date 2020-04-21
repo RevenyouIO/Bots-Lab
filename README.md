@@ -89,9 +89,6 @@ For this project Python 3 is needed. Mac users take note: Python is already inst
 as part of your operating system, but this will not suffice. 
 For downloading Python 3 see [Download Python](https://www.python.org/downloads/).
 
-*Note:* On Windows, download and install the 32-bit version of Python (this is the default
-download option). This makes installing TA-Lib easier.
-
 ### Install library TA-Lib
 TA-Lib is widely used by trading software developers for perform technical analysis 
 of financial market data. Before you can use TA-Lib from Python you must first install the 

@@ -3,7 +3,7 @@
 REM Check if pip3 is installed
 WHERE /Q pip3
 IF ERRORLEVEL 1 (
-    ECHO The pip3 command is not installed or not on PATH. Please install Python 3.8 (32-bits^) and ensure the python and pip3 commands are available are on the PATH.
+    ECHO The pip3 command is not installed or not on PATH. Please install Python 3.8 and ensure the python and pip3 commands are available are on the PATH.
     EXIT /B
 )
 
