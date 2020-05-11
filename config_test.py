@@ -17,15 +17,22 @@ datasource = 'poloniex'
 
 # Example data settings historical data poloniex
 # For more information: https://poloniex.com/
-data_settings_poloniex = {
-    'pair': 'BTC_ETH',  # Use ETH pricing data on the BTC market
-    'period': 1800,       # Use 1800 second candles
-    'days_history': 100,  # Collect 100 days data
-}
+data_settings_list_poloniex = [ 
+    {
+        'pair': 'BTC_ETH',  # Use ETH pricing data on the BTC market
+        'period': 1800,       # Use 1800 second candles
+        'days_history': 100,  # Collect 100 days data
+    },  
+    {
+        'pair': 'BTC_LTC',  # Use LTC pricing data on the BTC market
+        'period': 1800,       # Use 1800 second candles
+        'days_history': 100,  # Collect 100 days data
+    },
+]
 
 # Example data settings historical data cryptocompare
 # For more information: https://www.cryptocompare.com/
-data_settings_cryptocompare = {
+data_settings_list_cryptocompare = {
     'pair': ['ETH', 'BTC'],  # Use ETH pricing data on the BTC market
     'days_history': 100,  # Collect 100 days data
     'exchange': 'Bitfinex' # exchange used when datasource is Cryptocompare
@@ -33,7 +40,7 @@ data_settings_cryptocompare = {
 
 # Example data settings historical data binance
 # For more information: https://www.binance.com/
-data_settings_binance = {
+data_settings_list_binance = {
     'pair': 'ETHBTC',  # Use ETH pricing data on the BTC market
     'period': '4h',   # Use 4 hour candles
     'limit': 100,  # Collect 100 candles
