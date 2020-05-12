@@ -1,7 +1,6 @@
 from data import poloniex as px
 from data import cryptocompare as cc
 from data import binance as bn
-# from config_test import data_settings_poloniex, data_settings_cryptocompare, data_settings_binance
 from config_live import data_settings_poloniex as dsp, data_settings_cryptocompare as dsc, data_settings_binance as dsb
 
 def get_historical_data_poloniex(data_settings_poloniex):
