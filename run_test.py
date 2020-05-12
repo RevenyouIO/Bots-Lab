@@ -40,12 +40,13 @@ youengine = YouEngine(sim_params=sim_params, analyze=analyze_bokeh)
 # get the bot
 bot = import_bot(name = bot_name)
 
-# start backtesting the bot with different data settings
+# start backtesting the bot with different pairs (multipair trading)
 data_settings_list = get_data_settings_list()
+capital_base = sim_params.get('capital_base', 10e5)
 for data_settings in data_settings_list:
     historical_data = get_historical_data(data_settings=data_settings)
     if historical_data is None:
         continue
-    perf = youengine.run(data=historical_data, bot=bot.get_buy_or_sell_signal, show_trades=True)
-    print('base equity: ')
-    print(perf['equity'][-1])
+    pair = ''.join(data_settings.get('pair'))
+    perf = youengine.run(data=historical_data, bot=bot.get_buy_or_sell_signal, capital_base=capital_base, pair=pair, show_trades=True)
+    capital_base = perf['equity'][-1]
