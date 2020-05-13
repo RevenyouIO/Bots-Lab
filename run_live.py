@@ -4,6 +4,7 @@ import importlib
 
 from config_live import datasource, buy_signal_settings, revenyou_api_url, bot_name
 from data.data_service import get_live_data_poloniex, get_live_data_cryptocompare, get_live_data_binance
+from websocket_binance import BinanceWebsocketClient
 
 def import_bot(name):
     try:
@@ -63,5 +64,7 @@ def get_live_data():
     return data
 
 # run periodically through cronjob
-live_data = get_live_data()
-run_bot(data = live_data)
+# live_data = get_live_data()
+# run_bot(data = live_data)
+ws = BinanceWebsocketClient()
+ws.listen()

@@ -5,6 +5,7 @@ services:
     build:
       context: ..
       dockerfile: docker/bot/Dockerfile
-    command: /usr/local/bin/supercronic supercronic.conf
+    # command: /usr/local/bin/supercronic supercronic.conf
+    command: python3 run_live.py
     volumes:
     - ../generated:/opt/bot/generated

@@ -2,7 +2,7 @@
 bot_name = 'bots.rsi'
 
 # Datasource is poloniex or cryptocompare
-datasource = 'poloniex'
+datasource = 'binance'
 
 revenyou_api_url = 'https://youhexpaper.revenyou.io/api/signal/v1/signal'
 
