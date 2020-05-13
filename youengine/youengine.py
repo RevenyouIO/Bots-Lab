@@ -19,9 +19,9 @@ class YouEngine:
     Main class of Backtester
     """
     data = None  # storage for history data
+    pair = None # market pair
     account = None  # exchange account simulator
     sim_params = {
-        'capital_base': 10e5,
         'data_frequency': 'D',
         'fee': FEES,  # Fees in percent of trade amount
         'resample': True
@@ -70,7 +70,7 @@ class YouEngine:
         """
         pass
 
-    def run(self, data, bot, **kwargs):
+    def run(self, data, bot, capital_base, pair, **kwargs):
         """
         Main method to start backtest
         :param data: historic data with ticks or bars
@@ -81,9 +81,12 @@ class YouEngine:
         """
 
         self.account = exchange.Account(
-            self.sim_params.get('capital_base', 10e5),
+            capital_base,
             fee=self.sim_params.get('fee', None)
         )
+
+        self.pair = pair
+
         self.records = []
 
         self.initialize()
@@ -119,7 +122,7 @@ class YouEngine:
 
         self.performance = self.prepare_performance()
         self.results()
-        self.analyze(**kwargs)
+        self.analyze(title_suffix=self.pair, **kwargs)
 
         return self.performance
 
@@ -192,7 +195,7 @@ class YouEngine:
         :return:
         """
         title = "{:=^52}".format(
-            " Results (freq {}) ".format(self.sim_params['data_frequency']))
+            " Results {} (freq {}) ".format(self.pair, self.sim_params['data_frequency']))
         print(title + "\n")
 
         shares = self.account.initial_capital / self.data.iloc[0]['close']
