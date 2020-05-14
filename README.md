@@ -164,6 +164,5 @@ Steps:
 ## Run your bot live
 Steps:
 1. In `config_live.py` give the parameter `bot_name` the right value: `bot_name = 'bots.[file_name_of_bot]'`
-2. If needed, change the interval in the configuration file `docker/bot/supercronic.conf`
 2. Execute the bot in live mode using the instructions above, e.g. with the recommended Docker command:
    `run_bot.sh live` (or `run_bot.cmd live` on Windows).

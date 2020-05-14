@@ -18,16 +18,16 @@ RUN curl -s -o /tmp/ta-lib.tar.gz "$TALIB_URL" \
  && cd /tmp \
  && rm -rf /tmp/ta-lib*
 
-# Set up SuperCronic to schedule bot runs at predefined intervals (using supercronic.conf, see below)
-ENV SUPERCRONIC_URL=https://github.com/aptible/supercronic/releases/download/v0.1.9/supercronic-linux-amd64 \
-    SUPERCRONIC=supercronic-linux-amd64 \
-    SUPERCRONIC_SHA1SUM=5ddf8ea26b56d4a7ff6faecdd8966610d5cb9d85
+# # Set up SuperCronic to schedule bot runs at predefined intervals (using supercronic.conf, see below)
+# ENV SUPERCRONIC_URL=https://github.com/aptible/supercronic/releases/download/v0.1.9/supercronic-linux-amd64 \
+#     SUPERCRONIC=supercronic-linux-amd64 \
+#     SUPERCRONIC_SHA1SUM=5ddf8ea26b56d4a7ff6faecdd8966610d5cb9d85
 
-RUN curl -fsSLO "$SUPERCRONIC_URL" \
- && echo "${SUPERCRONIC_SHA1SUM}  ${SUPERCRONIC}" | sha1sum -c - \
- && chmod +x "$SUPERCRONIC" \
- && mv "$SUPERCRONIC" "/usr/local/bin/${SUPERCRONIC}" \
- && ln -s "/usr/local/bin/${SUPERCRONIC}" /usr/local/bin/supercronic
+# RUN curl -fsSLO "$SUPERCRONIC_URL" \
+#  && echo "${SUPERCRONIC_SHA1SUM}  ${SUPERCRONIC}" | sha1sum -c - \
+#  && chmod +x "$SUPERCRONIC" \
+#  && mv "$SUPERCRONIC" "/usr/local/bin/${SUPERCRONIC}" \
+#  && ln -s "/usr/local/bin/${SUPERCRONIC}" /usr/local/bin/supercronic
 
 # Create a user to run as
 RUN groupadd --gid 1024 bot
@@ -43,7 +43,7 @@ RUN pip install -r requirements.txt
 COPY . .
 
 # Copy SuperCronic configuration file into place
-COPY docker/bot/supercronic.conf supercronic.conf
+# COPY docker/bot/supercronic.conf supercronic.conf
 
 RUN mkdir /opt/bot/generated
 VOLUME /opt/bot/generated
