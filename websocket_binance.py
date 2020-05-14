@@ -1,6 +1,3 @@
-import requests
-import uuid
-import importlib
 import websocket
 import json
 import pandas as pd
@@ -9,53 +6,72 @@ try:
 except ImportError:
     import _thread as thread
 
-from data.data_service import data_settings_binance
+from config_live import data_settings_binance
+from api_service import send_request
 
 class BinanceWebsocketClient:
     
-    def __init__(self):
+    def __init__(self, get_buy_or_sell_signal):
         self.ticker_data_array = []
         self.previous_tick = 0
+        self.get_buy_or_sell_signal = get_buy_or_sell_signal
+        self.bot_function_interval = data_settings_binance.get('bot_function_interval')
+        self.max_length_ticker_data_array = data_settings_binance.get('max_length_ticker_data_array')
 
     def on_message(self, ws, message):
         ticker_data = json.loads(message)
 
-        # skip this tick when it is too soon
-        if (int(ticker_data['E']) - self.previous_tick) < 5000:
+        # skip this message if it is the very first message that contains no ticker data
+        if 'result' in ticker_data.keys():
             return
 
+        # skip this tick when it is too soon
+        interval_between_ticks = int(ticker_data['E']) - self.previous_tick
+        if interval_between_ticks < self.bot_function_interval:
+            return
         self.previous_tick = int(ticker_data['E'])
 
-        print(message)
-
+        # append ticker data to array and limit size if necessary
         self.ticker_data_array.append(ticker_data)
-   
-        # limit the ticker data array size
-        if len(self.ticker_data_array) > 20:
+        if len(self.ticker_data_array) > self.max_length_ticker_data_array:
             self.ticker_data_array.pop(0)
         
+        # get buy or sell signal
+        df = self.createDataFrame()
+        buy_or_sell_signal = self.get_buy_or_sell_signal(data=df)
+        print(buy_or_sell_signal)
+
+        # for now the revenyou api accepts only buy signals!
+        if buy_or_sell_signal == 'buy':
+            send_request()
+
+    def createDataFrame(self):
         df = pd.DataFrame(self.ticker_data_array)
         df['E'] = pd.to_datetime(df['E'], unit='ms')
         df.columns = ['type', 'date', 'symbol', 'close', 'open', 'high', 'low', 'volume', 'volume_quote']
 
-        # roep bot aan, en stuur eventueel buy signal
-        print('data frame: ')
-        print(df)
+        columns = ['close', 'open', 'high', 'low', 'volume', 'volume_quote']
+        for column in columns:
+            df[column] = df[column].astype(float)
+
+        return df
 
     def on_error(self, ws, error):
         print("Websocker error: {}", error)
 
     def on_close(self, ws):
-        print("Websocket closed")
+        print("Websocket is automatically closed after 24h, so open it again")
+        self.listen()
 
     def on_open(self, ws):
-        ws.send({
+        subscribe_request = {
             "method": "SUBSCRIBE",
             "params": [
                 "{}@miniTicker".format(data_settings_binance.get('pair').lower()),
             ],
             "id": 1
-        })
+        }
+        ws.send(json.dumps(subscribe_request))
 
     def listen(self):
         websocket.enableTrace(True)

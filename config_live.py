@@ -1,5 +1,5 @@
 # Name of the file (without .py extension!) that contains the bot
-bot_name = 'bots.rsi'
+bot_name = 'bots.bot_template'
 
 # Datasource is poloniex or cryptocompare
 datasource = 'binance'
@@ -11,20 +11,22 @@ data_settings_poloniex = {
     'pair': 'BTC_ETH',  # Use ETH pricing data on the BTC market
     'period': 1800,       # Use 1800 second candles
     'days_history': 10,  # Collect 10 days data
+    'bot_function_interval': 1800 # the bot function is called every 1800 seconds (half an hour)
 }
 
 # Data settings real time data cryptocompare
 data_settings_cryptocompare = {
     'pair': ['ETH', 'BTC'],  # Use ETH pricing data on the BTC market
     'days_history': 100,  # Collect 100 days data
-    'exchange': 'Bitfinex' # Exchange that is used
+    'exchange': 'Bitfinex', # Exchange that is used
+    'bot_function_interval': 1800 # the bot function is called every 1800 seconds (half an hour)
 }
 
 # Data settings real time data binance
 data_settings_binance = {
     'pair': 'ETHBTC',  # Use ETH pricing data on the BTC market
-    'period': '4h',   # Use 4 hour candles
-    'limit': 100,  # Collect 100 candles
+    'max_length_ticker_data_array': 20, # the bot function receives a maximum of 20 ticker data at a time (the most recent ones)
+    'bot_function_interval': 5000 # the bot function is called every 5000 miliseconds (5 seconds)
 }
 
 buy_signal_settings = {
