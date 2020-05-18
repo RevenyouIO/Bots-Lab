@@ -3,7 +3,7 @@ from time import sleep
 
 from config_live import datasource, bot_name, data_settings_cryptocompare, data_settings_poloniex
 from data.data_service import get_live_data_poloniex, get_live_data_cryptocompare
-from websocket_binance import BinanceWebsocketClient
+from data.websocket_binance import BinanceWebsocketClient
 from api_service import send_request
 
 def import_bot(name):

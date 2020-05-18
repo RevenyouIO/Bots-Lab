@@ -9,9 +9,9 @@ def get_buy_or_sell_signal(data):
     make a decision to buy, sell or do nothing. See below for a simple example.
 
     Param data: 
-    List of candles or ticker data in the form of a Pandas Dataframe. A candle or ticker data 
-    has minimal the following properties:
-    date, open, high, low, close and volume
+    List of candles or ticker data in the form of a Pandas Dataframe. The test environment
+    uses candles (historical data) and the live environment ticker data. Candles or ticker data 
+    have minimal the following properties: date, open, high, low, close and volume.
 
     Example candle / ticker data:
     date                open       high       low        close       volume      date

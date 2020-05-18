@@ -25,16 +25,17 @@ class BinanceWebsocketClient:
         if 'result' in ticker_data.keys():
             return
 
-        # skip this tick when it is too soon
-        interval_between_ticks = int(ticker_data['E']) - self.previous_tick
-        if interval_between_ticks < self.bot_function_interval:
-            return
-        self.previous_tick = int(ticker_data['E'])
-
         # append ticker data to array and limit size if necessary
         self.ticker_data_array.append(ticker_data)
         if len(self.ticker_data_array) > self.max_length_ticker_data_array:
             self.ticker_data_array.pop(0)
+
+        # don't call the bot function when this tick is too soon
+        interval_between_ticks = int(ticker_data['E']) - self.previous_tick
+        if interval_between_ticks < self.bot_function_interval:
+            return
+            
+        self.previous_tick = int(ticker_data['E'])
         
         # get buy or sell signal
         df = self.createDataFrame()
@@ -49,6 +50,7 @@ class BinanceWebsocketClient:
         df = pd.DataFrame(self.ticker_data_array)
         df['E'] = pd.to_datetime(df['E'], unit='ms')
         df.columns = ['type', 'date', 'symbol', 'close', 'open', 'high', 'low', 'volume', 'volume_quote']
+        df = df.set_index(['date'])
 
         columns = ['close', 'open', 'high', 'low', 'volume', 'volume_quote']
         for column in columns:
