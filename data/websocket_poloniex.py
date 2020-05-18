@@ -2,6 +2,7 @@ import websocket
 import json
 import pandas as pd
 import time
+from datetime import datetime
 try:
     import thread
 except ImportError:
@@ -14,27 +15,32 @@ class PoloniexWebsocketClient:
 
     def __init__(self, get_buy_or_sell_signal):
         self.ticker_data_array = []
-        self.previous_tick = 0
+        self.previous_tick = int(round(time.time() * 1000))
         self.get_buy_or_sell_signal = get_buy_or_sell_signal
         self.bot_function_interval = data_settings_poloniex.get('bot_function_interval')
-        self.max_length_ticker_data_array = data_settings_ploniex.get('max_length_ticker_data_array')
+        self.max_length_ticker_data_array = data_settings_poloniex.get('max_length_ticker_data_array')
+        self.currency_pair_id = data_settings_poloniex.get('currency_pair_id')
 
     def on_message(self, ws, message):
-        ticker_data = json.loads(message)
+        ticker = json.loads(message)
 
-        # skip this message if it is the very first message that contains no ticker data
-        if len(ticker_data) == 2:
+        # skip this message if it contains no ticker data
+        if len(ticker) < 3:
             return
 
-        if ticker_data[2][0] == 148: # get right number from config!
-            self.ticker_data_array.append(ticker_data[2])
+        # if the ticker data is of the wright pair append it to the array and continue
+        if ticker[2][0] == self.currency_pair_id:
+            ticker_data = ticker[2]
+            ticker_data.append(datetime.now())
+            self.ticker_data_array.append(ticker_data)
         else:
             return
         
+        # limit size ticker data array when it becomes too big
         if len(self.ticker_data_array) > self.max_length_ticker_data_array:
             self.ticker_data_array.pop(0)
 
-        # skip this tick when it is too soon
+        # don't call the bot function when this tick is too soon
         current_tick = int(round(time.time() * 1000))
         interval_between_ticks = current_tick - self.previous_tick
         if interval_between_ticks < self.bot_function_interval:
@@ -51,10 +57,11 @@ class PoloniexWebsocketClient:
             send_request()
 
     def createDataFrame(self):
-        df = pd.DataFrame(ticker_data_array, columns=['pair_id', 'close', 'low_ask', 'high_ask', 'percentage_change', 'base_volume', 
-            'quote_volume', 'is_frozen', 'high', 'low'])
+        df = pd.DataFrame(self.ticker_data_array, columns=['pair_id', 'close', 'low_ask', 'high_ask', 'percentage_change', 'volume', 
+            'quote_volume', 'is_frozen', 'high', 'low', 'date'])
+        df = df.set_index(['date'])
 
-        columns = ['close', 'low_ask', 'high_ask', 'percentage_change', 'base_volume', 
+        columns = ['close', 'low_ask', 'high_ask', 'percentage_change', 'volume', 
             'quote_volume', 'is_frozen', 'high', 'low']
         for column in columns:
             df[column] = df[column].astype(float)
