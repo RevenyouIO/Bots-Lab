@@ -14,8 +14,8 @@ def get_buy_or_sell_signal(data):
     have minimal the following properties: date, open, high, low, close and volume.
 
     Example candle / ticker data:
-    date                open       high       low        close       volume      date
-    2020-03-03 12:00:00 0.02608580 0.02613449 0.02581001 0.02581078  59.40688146 2020-03-03 12:00:00
+    date(index)                 open       high       low        close       volume      date
+    2020-03-03 12:00:00     0.02608580 0.02613449 0.02581001 0.02581078  59.40688146 2020-03-03 12:00:00
 
     Return: 'buy', 'sell' or None
     """
