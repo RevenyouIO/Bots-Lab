@@ -2,7 +2,7 @@ import websocket
 import json
 import pandas as pd
 import time
-from datetime import datetime
+from datetime import datetime, timezone
 try:
     import thread
 except ImportError:
@@ -24,12 +24,11 @@ class CryptocompareWebsocketClient:
         ticker_data = json.loads(message)
 
         # skip this message if it contains no ticker data
-        print(ticker_data)
-        print(len(ticker_data.keys()))
         if ticker_data['TYPE'] != '2':
             return
 
         # append ticker data to array and limit size if necessary
+        ticker_data['date'] = datetime.now()
         self.ticker_data_array.append(ticker_data)
         if len(self.ticker_data_array) > self.max_length_ticker_data_array:
             self.ticker_data_array.pop(0)
@@ -41,10 +40,8 @@ class CryptocompareWebsocketClient:
             return
         self.previous_tick = current_tick
 
-        # print(self.ticker_data_array)
         # get buy or sell signal
         df = self.createDataFrame()
-        print(df)
         buy_or_sell_signal = self.get_buy_or_sell_signal(data=df)
         print(buy_or_sell_signal)
 
@@ -54,13 +51,8 @@ class CryptocompareWebsocketClient:
 
     def createDataFrame(self):
         df = pd.DataFrame(self.ticker_data_array)
-        df['LASTUPDATE'] = pd.to_datetime(df['LASTUPDATE'], unit='ms')
-        df.rename(columns={'LASTUPDATE': 'date', 'OPENDAY': 'open', 'PRICE': 'close', 'HIGHDAY': 'high', 'LOWDAY': 'low', 'VOLUMEDAY': 'volume'}, inplace=True)
+        df.rename(columns={'OPENDAY': 'open', 'PRICE': 'close', 'HIGHDAY': 'high', 'LOWDAY': 'low', 'LASTVOLUME': 'volume'}, inplace=True)
         df = df.set_index(['date'])
-
-        columns = ['open', 'close', 'high', 'low', 'volume']
-        for column in columns:
-            df[column] = df[column].astype(float)
 
         return df
 
