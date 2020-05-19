@@ -8,38 +8,32 @@ try:
 except ImportError:
     import _thread as thread
 
-from config_live import data_settings_poloniex
+from config_live import data_settings_cryptocompare
 from api_service import send_request
 
-class PoloniexWebsocketClient:
+class CryptocompareWebsocketClient:
 
     def __init__(self, get_buy_or_sell_signal):
         self.ticker_data_array = []
         self.previous_tick = int(round(time.time() * 1000))
         self.get_buy_or_sell_signal = get_buy_or_sell_signal
-        self.bot_function_interval = data_settings_poloniex.get('bot_function_interval')
-        self.max_length_ticker_data_array = data_settings_poloniex.get('max_length_ticker_data_array')
-        self.currency_pair_id = data_settings_poloniex.get('currency_pair_id')
+        self.bot_function_interval = data_settings_cryptocompare.get('bot_function_interval')
+        self.max_length_ticker_data_array = data_settings_cryptocompare.get('max_length_ticker_data_array')
 
     def on_message(self, ws, message):
-        ticker = json.loads(message)
+        ticker_data = json.loads(message)
 
         # skip this message if it contains no ticker data
-        if len(ticker) < 3:
+        print(ticker_data)
+        print(len(ticker_data.keys()))
+        if ticker_data['TYPE'] != '2':
             return
 
-        # if the ticker data is of the wright pair append it to the array and continue
-        if ticker[2][0] == self.currency_pair_id:
-            ticker_data = ticker[2]
-            ticker_data.append(datetime.now())
-            self.ticker_data_array.append(ticker_data)
-        else:
-            return
-        
-        # limit size ticker data array when it becomes too big
+        # append ticker data to array and limit size if necessary
+        self.ticker_data_array.append(ticker_data)
         if len(self.ticker_data_array) > self.max_length_ticker_data_array:
             self.ticker_data_array.pop(0)
-
+        
         # don't call the bot function when this tick is too soon
         current_tick = int(round(time.time() * 1000))
         interval_between_ticks = current_tick - self.previous_tick
@@ -47,8 +41,10 @@ class PoloniexWebsocketClient:
             return
         self.previous_tick = current_tick
 
+        # print(self.ticker_data_array)
         # get buy or sell signal
         df = self.createDataFrame()
+        print(df)
         buy_or_sell_signal = self.get_buy_or_sell_signal(data=df)
         print(buy_or_sell_signal)
 
@@ -57,16 +53,17 @@ class PoloniexWebsocketClient:
             send_request()
 
     def createDataFrame(self):
-        df = pd.DataFrame(self.ticker_data_array, columns=['pair_id', 'close', 'low_ask', 'high_ask', 'percentage_change', 'volume', 
-            'quote_volume', 'is_frozen', 'high', 'low', 'date'])
+        df = pd.DataFrame(self.ticker_data_array)
+        df['LASTUPDATE'] = pd.to_datetime(df['LASTUPDATE'], unit='ms')
+        df.rename(columns={'LASTUPDATE': 'date', 'OPENDAY': 'open', 'PRICE': 'close', 'HIGHDAY': 'high', 'LOWDAY': 'low', 'VOLUMEDAY': 'volume'}, inplace=True)
         df = df.set_index(['date'])
 
-        columns = ['close', 'low_ask', 'high_ask', 'percentage_change', 'volume', 
-            'quote_volume', 'is_frozen', 'high', 'low']
+        columns = ['open', 'close', 'high', 'low', 'volume']
         for column in columns:
             df[column] = df[column].astype(float)
 
         return df
+
 
     def on_error(self, ws, error):
         print("Websocker error: {}", error)
@@ -75,12 +72,15 @@ class PoloniexWebsocketClient:
         print("Websocket closed")
 
     def on_open(self, ws):
-        subscribe_request =  { "command": "subscribe", "channel": 1002 }
+        subscribe_request =  {
+            "action": "SubAdd",
+            "subs": data_settings_cryptocompare.get('pair'),
+        }
         ws.send(json.dumps(subscribe_request))
 
     def listen(self):
         websocket.enableTrace(True)
-        uri = 'wss://api2.poloniex.com'
+        uri = 'wss://streamer.cryptocompare.com/v2?api_key={}'.format(data_settings_cryptocompare.get('api_key'))
         ws = websocket.WebSocketApp(uri,
                                 on_message = lambda ws,msg: self.on_message(ws, msg),
                                 on_error   = lambda ws,msg: self.on_error(ws, msg),

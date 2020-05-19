@@ -2,7 +2,7 @@
 bot_name = 'bots.bot_template'
 
 # Datasource is poloniex or cryptocompare
-datasource = 'poloniex'
+datasource = 'cryptocompare'
 
 revenyou_api_url = 'https://youhexpaper.revenyou.io/api/signal/v1/signal'
 
@@ -16,10 +16,10 @@ data_settings_poloniex = {
 
 # Data settings real time data cryptocompare
 data_settings_cryptocompare = {
-    'pair': ['ETH', 'BTC'],  # Use ETH pricing data on the BTC market
-    'days_history': 100,  # Collect 100 days data
-    'exchange': 'Bitfinex', # Exchange that is used
-    'bot_function_interval': 1800 # the bot function is called every 1800 seconds (half an hour)
+    'pair': ['2~Coinbase~BTC~USD'],  # Use Ticker USD pricing data on the BTC market, see https://min-api.cryptocompare.com/documentation/websockets
+    'max_length_ticker_data_array': 10, # the bot function receives a maximum of 20 ticker data at a time (the most recent ones)
+    'bot_function_interval': 5000, # the bot function is called every 1800 seconds (half an hour)
+    'api_key': 'a19cbe2b932ffe8e1b74e29daa146c50608f19767a624d9de685744bff9afd72' # for authentication, see https://www.cryptocompare.com/coins/guides/how-to-use-our-api/
 }
 
 # Data settings real time data binance
