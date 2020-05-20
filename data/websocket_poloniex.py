@@ -72,8 +72,7 @@ class PoloniexWebsocketClient:
         print("Websocker error: {}", error)
 
     def on_close(self, ws):
-        print("Websocket is automatically closed after 24h, so open it again")
-        self.listen()
+        print("Websocket is closed")
 
     def on_open(self, ws):
         subscribe_request =  { "command": "subscribe", "channel": 1002 }
