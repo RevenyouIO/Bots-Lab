@@ -18,24 +18,24 @@ def create_revenyou_buy_signal(pair):
         'symbol': pair,
         'signalType': 'buy',
         'signalId': str(uuid.uuid4()),
-        'priceLimit': buy_signal_settings.get('price_limit'),
-        'buyTTLSec': buy_signal_settings.get('buy_ttl_sec'),
+        'priceLimit': buy_signal_settings.get(pair).get('price_limit'),
+        'buyTTLSec': buy_signal_settings.get(pair).get('buy_ttl_sec'),
         'takeProfit': [
             {
                 'amountPercentage': '60',
-                'pricePercentage': buy_signal_settings.get('take_profit_price_percentage_60')
+                'pricePercentage': buy_signal_settings.get(pair).get('take_profit_price_percentage_60')
             },
             {
                 'amountPercentage': '40',
-                'pricePercentage': buy_signal_settings.get('take_profit_price_percentage_40')
+                'pricePercentage': buy_signal_settings.get(pair).get('take_profit_price_percentage_40')
             }
         ],
         'stopLoss': {
-            'pricePercentage': buy_signal_settings.get('stop_loss_price_percentage')
+            'pricePercentage': buy_signal_settings.get(pair).get('stop_loss_price_percentage')
         },
         'panicSell': {
-            'pricePercentage': buy_signal_settings.get('panic_sell_price_percentage'),
-            'sellPriceDeviationPercentage': buy_signal_settings.get('panic_sell_price_deviation_percentage')
+            'pricePercentage': buy_signal_settings.get(pair).get('panic_sell_price_percentage'),
+            'sellPriceDeviationPercentage': buy_signal_settings.get(pair).get('panic_sell_price_deviation_percentage')
         }
     }
 
