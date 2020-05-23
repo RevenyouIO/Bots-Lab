@@ -29,11 +29,7 @@ class PoloniexWebsocketClient:
         if not self.contains_ticker_data(ticker= ticker):
             return
 
-        id = self.get_id(ticker=ticker)
-        if id in self.id_pair_dictionary:
-            ticker_data = self.get_ticker_data(ticker=ticker)
-            pair = self.id_pair_dictionary[id]
-            self.append_to_pair_ticker_data_list_dictionary(pair=pair, ticker_data=ticker_data)
+        self.process_ticker_data(ticker=ticker)
 
         # don't call the bot function when this tick is too soon
         current_tick_in_milliseconds = int(round(time.time() * 1000))
@@ -46,6 +42,13 @@ class PoloniexWebsocketClient:
 
     def contains_ticker_data(self, ticker):
         return len(ticker) > 2
+
+    def process_ticker_data(self, ticker):
+        id = self.get_id(ticker=ticker)
+        if id in self.id_pair_dictionary:
+            ticker_data = self.get_ticker_data(ticker=ticker)
+            pair = self.id_pair_dictionary[id]
+            self.append_to_pair_ticker_data_list_dictionary(pair=pair, ticker_data=ticker_data)
 
     def get_id(self, ticker):
         return str(ticker[2][0])
