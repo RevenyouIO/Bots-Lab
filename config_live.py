@@ -1,8 +1,8 @@
 # Name of the file (without .py extension!) that contains the bot
-bot_name = 'bots.bot_template'
+bot_name = 'bots.sma'
 
 # Datasource is poloniex or binance
-datasource = 'poloniex'
+datasource = 'binance'
 
 revenyou_api_url = 'https://youhexpaper.revenyou.io/api/signal/v1/signal'
 
@@ -16,16 +16,16 @@ data_settings_poloniex = {
 
 # Data settings real time data binance
 data_settings_binance = {
-    'pair': 'ETHBTC',  # Use ETH pricing data on the BTC market
-    'max_length_ticker_data_array': 15, # the bot function receives a maximum of 20 ticker data at a time (the most recent ones)
-    'bot_function_interval': 5000 # the bot function is called every 5000 miliseconds (5 seconds)
+    'run_bot_interval': 5.0, # the bot function is called every 5 seconds
+    'max_length_ticker_data_list': 10, # the bot function receives a maximum of 20 ticker data at a time (the most recent ones)
+    'pair_list': ['ethbtc', 'ltcbtc']  # Use ETH and LTC pricing data on the BTC market
 }
 
 buy_signal_settings = {
     'signal_provider': '[BOT NAME]',
     'signal_provider_key': '[KEY]',
     'exchange': datasource,
-    'BTC_ETH': {
+    'ethbtc': {
         'price_limit': '100', # Buy BTC with a price limit of 100 ETH
         'buy_ttl_sec': 1800, # Time (in seconds) for buy order to live
         'take_profit_price_percentage_60': '5', # Take 60% profit when price of BTC goes up with 5%
@@ -34,7 +34,7 @@ buy_signal_settings = {
         'panic_sell_price_percentage': '20',
         "panic_sell_price_deviation_percentage": '2'
     },
-    'BTC_LTC': {
+    'ltcbtc': {
         'price_limit': '50', # Buy BTC with a price limit of 100 ETH
         'buy_ttl_sec': 1800, # Time (in seconds) for buy order to live
         'take_profit_price_percentage_60': '10', # Take 60% profit when price of BTC goes up with 5%
@@ -42,5 +42,5 @@ buy_signal_settings = {
         'stop_loss_price_percentage': '10', # Close position (stop loss) when price of BTC  goes down with 5%
         'panic_sell_price_percentage': '15',
         "panic_sell_price_deviation_percentage": '3'
-    },
+    }
 }

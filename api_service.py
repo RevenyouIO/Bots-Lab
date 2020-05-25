@@ -5,17 +5,16 @@ from config_live import buy_signal_settings, revenyou_api_url
 
 def send_request(pair):
     revenyou_api_signal = create_revenyou_buy_signal(pair=pair)
-    request = requests.post(url = revenyou_api_url.strip("\n"), json = revenyou_api_signal, headers = {'content-type': 'application/json'})
+    response = requests.post(url = revenyou_api_url.strip("\n"), json = revenyou_api_signal, headers = {'content-type': 'application/json'})
 
-    print(request.json())
-
+    print('response revenyou api on buy signal for pair {}: {}'.format(pair, response.json()))
 
 def create_revenyou_buy_signal(pair):
     api_signal = {    
         'signalProvider': buy_signal_settings.get('signal_provider'),
         'signalProviderKey': buy_signal_settings.get('signal_provider_key'),
         'exchange': buy_signal_settings.get('exchange'),
-        'symbol': pair,
+        'symbol': pair.upper(),
         'signalType': 'buy',
         'signalId': str(uuid.uuid4()),
         'priceLimit': buy_signal_settings.get(pair).get('price_limit'),

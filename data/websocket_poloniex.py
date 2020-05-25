@@ -50,20 +50,19 @@ class PoloniexWebsocketClient:
         ticker_data.append(datetime.now())
         self.pair_ticker_data_list_dictionary[pair].append(ticker_data)
         
-        # limit size ticker data list when it becomes too big
         if len(self.pair_ticker_data_list_dictionary[pair]) > self.max_length_ticker_data_list:
             self.pair_ticker_data_list_dictionary[pair].pop(0)
 
     def run_bot(self):
         for pair, ticker_data_list in self.pair_ticker_data_list_dictionary.items():
-            df = self.createDataFrame(ticker_data_list=ticker_data_list)
-            buy_or_sell_signal = self.get_buy_or_sell_signal(data=df)
-            print(pair)
-            print(buy_or_sell_signal)
+            if len(ticker_data_list) > 0:
+                df = self.createDataFrame(ticker_data_list=ticker_data_list)
+                buy_or_sell_signal = self.get_buy_or_sell_signal(data=df)
+                print('buy signal of pair {}: {}'.format(pair, buy_or_sell_signal))
 
-            # for now the revenyou api accepts only buy signals!
-            if buy_or_sell_signal == 'buy':
-                send_request(pair=pair)
+                # for now the revenyou api accepts only buy signals!
+                if buy_or_sell_signal == 'buy':
+                    send_request(pair=pair)
 
         Timer(self.run_bot_interval, self.run_bot).start()
 
