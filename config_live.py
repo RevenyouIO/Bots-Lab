@@ -9,7 +9,7 @@ revenyou_api_url = 'https://youhexpaper.revenyou.io/api/signal/v1/signal'
 # Data settings real time data poloniex
 data_settings_poloniex = {
     # 'pair': 'BTC_ETH',  # Use ETH pricing data on the BTC market
-    'run_bot_interval': 5000, # the bot function is called every 5000 miliseconds (5 seconds)
+    'run_bot_interval': 5.0, # the bot function is called every 5 seconds
     'max_length_ticker_data_list': 10, # the bot function receives a maximum of 20 ticker data at a time (the most recent ones)
     'id_pair_dictionary': { '148': 'BTC_ETH', '50': 'BTC_LTC' } # currency ids of BTC_ETH and BTC_LTC, see https://docs.poloniex.com/?shell#currencies
 }
