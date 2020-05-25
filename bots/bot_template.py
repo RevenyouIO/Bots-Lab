@@ -13,6 +13,10 @@ def get_buy_or_sell_signal(data):
     uses candles (historical data) and the live environment ticker data. Candles or ticker data 
     have minimal the following properties: date, open, high, low, close and volume.
 
+    Float64:
+    The Dataframe number values are of type float64 (numpy dtype float). To convert this values to native
+    Python floats use the item() function. See below.
+
     Example candle / ticker data:
     date(index)                 open       high       low        close       volume      date
     2020-03-03 12:00:00     0.02608580 0.02613449 0.02581001 0.02581078  59.40688146 2020-03-03 12:00:00
@@ -29,9 +33,9 @@ def get_buy_or_sell_signal(data):
     previous_candle = data.iloc[-2]
 
     # return sell signal
-    if current_candle['close'] < previous_candle['close']:
+    if current_candle['close'].item() < previous_candle['close'].item():
         return 'sell'
 
     # return buy signal
-    elif current_candle['close'] > previous_candle['close']:
+    elif current_candle['close'].item() > previous_candle['close'].item():
         return 'buy'
