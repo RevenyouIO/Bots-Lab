@@ -1,5 +1,5 @@
 # Name of the file (without .py extension!) that contains the bot
-bot_name = 'bots.sma'
+bot_name = 'bots.bot_template'
 
 # Datasource is poloniex or binance
 datasource = 'binance'
