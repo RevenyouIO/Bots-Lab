@@ -1,4 +1,8 @@
-# Imports of needed libraries come here
+# Imports of external modules come here
+
+# Imports of internal modules comes here
+# When you want to change the buy_signal_settings from within the get_buy_or_sell_signal function import config_test or config_live  
+# See https://docs.python.org/3/faq/programming.html#how-do-i-share-global-variables-across-modules
 
 # Global variables come here. 
 # Global variables can be used to store values for later use. 
