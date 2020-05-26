@@ -1,4 +1,8 @@
-# imports of needed libraries come here
+# Imports of needed libraries come here
+
+# Global variables come here. 
+# Global variables can be used to store values for later use. 
+# See https://www.w3schools.com/python/gloss_python_global_variables.asp
 
 def get_buy_or_sell_signal(data):
     """
