@@ -1,7 +1,6 @@
 import websocket
 import json
 import pandas as pd
-from threading import Timer
 from datetime import datetime
 
 from config_live import data_settings_poloniex
@@ -11,7 +10,6 @@ class PoloniexWebsocketClient:
 
     def __init__(self, get_buy_or_sell_signal):
         self.get_buy_or_sell_signal = get_buy_or_sell_signal
-        self.run_bot_interval = data_settings_poloniex.get('run_bot_interval')
         self.max_length_ticker_data_list = data_settings_poloniex.get('max_length_ticker_data_list')
         self.id_pair_dictionary = data_settings_poloniex.get('id_pair_dictionary')
         self.pair_ticker_data_list_dictionary = {}
@@ -28,20 +26,21 @@ class PoloniexWebsocketClient:
         if not self.contains_ticker_data(ticker= ticker):
             return
 
-        self.store_ticker_data(ticker=ticker)
+        id = self.get_id(ticker=ticker)
+        if id in self.id_pair_dictionary:
+            pair = self.id_pair_dictionary[id]
+            self.store_ticker_data(pair=pair, ticker=ticker)
+            self.run_bot(pair=pair)
 
     def contains_ticker_data(self, ticker):
         return len(ticker) > 2
 
-    def store_ticker_data(self, ticker):
-        id = self.get_id(ticker=ticker)
-        if id in self.id_pair_dictionary:
-            ticker_data = self.get_ticker_data(ticker=ticker)
-            pair = self.id_pair_dictionary[id]
-            self.append_to_pair_ticker_data_list_dictionary(pair=pair, ticker_data=ticker_data)
-
     def get_id(self, ticker):
         return str(ticker[2][0])
+
+    def store_ticker_data(self, pair, ticker):
+        ticker_data = self.get_ticker_data(ticker=ticker)
+        self.append_to_pair_ticker_data_list_dictionary(pair=pair, ticker_data=ticker_data)
 
     def get_ticker_data(self, ticker):
         return ticker[2]
@@ -53,18 +52,15 @@ class PoloniexWebsocketClient:
         if len(self.pair_ticker_data_list_dictionary[pair]) > self.max_length_ticker_data_list:
             self.pair_ticker_data_list_dictionary[pair].pop(0)
 
-    def run_bot(self):
-        for pair, ticker_data_list in self.pair_ticker_data_list_dictionary.items():
-            if len(ticker_data_list) > 0:
-                df = self.createDataFrame(ticker_data_list=ticker_data_list)
-                buy_or_sell_signal = self.get_buy_or_sell_signal(data=df)
-                print('buy signal of pair {}: {}'.format(pair, buy_or_sell_signal))
+    def run_bot(self, pair):
+        ticker_data_list= self.pair_ticker_data_list_dictionary[pair]
+        df = self.createDataFrame(ticker_data_list=ticker_data_list)
+        buy_or_sell_signal = self.get_buy_or_sell_signal(data=df)
+        print('buy signal for pair {}: {}'.format(pair, buy_or_sell_signal))
 
-                # for now the revenyou api accepts only buy signals!
-                if buy_or_sell_signal == 'buy':
-                    send_request(pair=pair)
-
-        Timer(self.run_bot_interval, self.run_bot).start()
+        # for now the revenyou api accepts only buy signals!
+        if buy_or_sell_signal == 'buy':
+            send_request(pair=pair)
 
     def createDataFrame(self, ticker_data_list):
         df = pd.DataFrame(ticker_data_list, columns=['pair_id', 'close', 'low_ask', 'high_ask', 'percentage_change', 'volume', 
@@ -88,9 +84,6 @@ class PoloniexWebsocketClient:
     def on_open(self, ws):
         subscribe_request =  { "command": "subscribe", "channel": 1002 }
         ws.send(json.dumps(subscribe_request))
-
-        Timer(self.run_bot_interval, self.run_bot).start()
-
 
     def listen(self):
         websocket.enableTrace(True)

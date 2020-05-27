@@ -1,7 +1,6 @@
 import websocket
 import json
 import pandas as pd
-from threading import Timer
 
 from config_live import data_settings_binance
 from api_service import send_request
@@ -10,7 +9,6 @@ class BinanceWebsocketClient:
     
     def __init__(self, get_buy_or_sell_signal):
         self.get_buy_or_sell_signal = get_buy_or_sell_signal
-        self.run_bot_interval = data_settings_binance.get('run_bot_interval')
         self.max_length_ticker_data_list = data_settings_binance.get('max_length_ticker_data_list')
         self.pair_list = data_settings_binance.get('pair_list')
         self.pair_ticker_data_list_dictionary = {}
@@ -28,15 +26,9 @@ class BinanceWebsocketClient:
         if not 'data' in ticker.keys():
             return
 
-        self.store_ticker_data(ticker=ticker)
-
-    def store_ticker_data(self, ticker):
         pair = self.get_pair(ticker=ticker)
-        ticker_data = ticker.get('data')
-        self.pair_ticker_data_list_dictionary[pair].append(ticker_data)
-
-        if len(self.pair_ticker_data_list_dictionary[pair]) > self.max_length_ticker_data_list:
-            self.pair_ticker_data_list_dictionary[pair].pop(0)
+        self.store_ticker_data(pair=pair, ticker=ticker)
+        self.run_bot(pair=pair)
 
     def get_pair(self, ticker):
         stream = ticker.get('stream')
@@ -44,18 +36,22 @@ class BinanceWebsocketClient:
 
         return pair    
 
-    def run_bot(self):
-        for pair, ticker_data_list in self.pair_ticker_data_list_dictionary.items():
-            if len(ticker_data_list) > 0:
-                df = self.createDataFrame(ticker_data_list=ticker_data_list)
-                buy_or_sell_signal = self.get_buy_or_sell_signal(data=df)
-                print('buy signal of pair {}: {}'.format(pair, buy_or_sell_signal))
+    def store_ticker_data(self, pair, ticker):
+        ticker_data = ticker.get('data')
+        self.pair_ticker_data_list_dictionary[pair].append(ticker_data)
 
-                # for now the revenyou api accepts only buy signals!
-                if buy_or_sell_signal == 'buy':
-                    send_request(pair=pair)
+        if len(self.pair_ticker_data_list_dictionary[pair]) > self.max_length_ticker_data_list:
+            self.pair_ticker_data_list_dictionary[pair].pop(0)
 
-        Timer(self.run_bot_interval, self.run_bot).start()
+    def run_bot(self, pair):
+        ticker_data_list= self.pair_ticker_data_list_dictionary[pair]
+        df = self.createDataFrame(ticker_data_list=ticker_data_list)
+        buy_or_sell_signal = self.get_buy_or_sell_signal(data=df)
+        print('buy signal for pair {}: {}'.format(pair, buy_or_sell_signal))
+
+        # for now the revenyou api accepts only buy signals!
+        if buy_or_sell_signal == 'buy':
+            send_request(pair=pair)
 
     def createDataFrame(self, ticker_data_list):
         df = pd.DataFrame(ticker_data_list)
@@ -83,9 +79,6 @@ class BinanceWebsocketClient:
             "id": 1
         }
         ws.send(json.dumps(subscribe_request))
-
-        Timer(self.run_bot_interval, self.run_bot).start()
-
 
     def get_params_value(self):
         return [pair + '@miniTicker' for pair in self.pair_list]
