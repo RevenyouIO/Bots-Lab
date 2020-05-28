@@ -1,4 +1,12 @@
-# imports of needed libraries come here
+# Imports of external modules come here
+
+# Imports of internal modules comes here
+# When you want to change the buy_signal_settings from within the get_buy_or_sell_signal function import config_test or config_live  
+# See https://docs.python.org/3/faq/programming.html#how-do-i-share-global-variables-across-modules
+
+# Global variables come here. 
+# Global variables can be used to store values for later use. 
+# See https://www.w3schools.com/python/gloss_python_global_variables.asp
 
 def get_buy_or_sell_signal(data):
     """
@@ -12,6 +20,10 @@ def get_buy_or_sell_signal(data):
     List of candles or ticker data in the form of a Pandas Dataframe. The test environment
     uses candles (historical data) and the live environment ticker data. Candles or ticker data 
     have minimal the following properties: date, open, high, low, close and volume.
+
+    Float64:
+    The Dataframe number values are of type float64 (numpy dtype float). To convert this values to native
+    Python floats use the item() function. See below.
 
     Example candle / ticker data:
     date(index)                 open       high       low        close       volume      date
@@ -29,9 +41,9 @@ def get_buy_or_sell_signal(data):
     previous_candle = data.iloc[-2]
 
     # return sell signal
-    if current_candle['close'] < previous_candle['close']:
+    if current_candle['close'].item() < previous_candle['close'].item():
         return 'sell'
 
     # return buy signal
-    elif current_candle['close'] > previous_candle['close']:
+    elif current_candle['close'].item() > previous_candle['close'].item():
         return 'buy'
