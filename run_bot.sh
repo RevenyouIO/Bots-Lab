@@ -10,7 +10,7 @@ MODE="$1"
 if [ "$MODE" == "test" ] ; then
   docker-compose -f docker/docker-compose-test.yml up --build
 elif [ "$MODE" == "live" ] ; then
-  docker-compose -f docker/docker-compose-live.yml up --build
+  docker-compose -f docker/docker-compose-live.yml up --build -d
 elif [ "$MODE" == "stop_live" ] ; then
   docker-compose -f docker/docker-compose-live.yml down
 else

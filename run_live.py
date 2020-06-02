@@ -1,4 +1,6 @@
 import importlib
+import logging
+logging.basicConfig(level=logging.DEBUG)
 
 from config_live import datasource, bot_name
 from data.websocket_binance import BinanceWebsocketClient
