@@ -1,4 +1,4 @@
-# Bot-Backtesting
+# Bots Lab Backtesting And Connector
 
 Open Source Backtesting Tool. With this tool you can test your bot with historical data to see how it performs.
 The results will be compared against the benchmark. See `bots/bot_template.py` and `config_test.py`
