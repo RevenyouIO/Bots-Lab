@@ -4,7 +4,7 @@ bot_name = 'bots.bot_template'
 # Datasource is poloniex or binance
 datasource = 'binance'
 
-revenyou_api_url = 'https://youhexpaper.revenyou.io/api/signal/v1/signal'
+revenyou_api_url = 'https://signal.revenyou.io/api/signal/v1/signal'
 
 # Data settings real time data poloniex
 data_settings_poloniex = {
