@@ -24,7 +24,7 @@ class YouEngine:
     sim_params = {
         'data_frequency': 'D',
         'fee': FEES,  # Fees in percent of trade amount
-        'resample': True
+        'resample': False
     }
     records = []
     performance = []
@@ -70,7 +70,7 @@ class YouEngine:
         """
         pass
 
-    def run(self, data, bot, capital_base, pair, **kwargs):
+    def run(self, data, bot, capital_base, pair, analyze=True, **kwargs):
         """
         Main method to start backtest
         :param data: historic data with ticks or bars
@@ -122,7 +122,8 @@ class YouEngine:
 
         self.performance = self.prepare_performance()
         self.results()
-        self.analyze(title_suffix=self.pair, **kwargs)
+        if(analyze):
+            self.analyze(title_suffix=self.pair, **kwargs)
 
         return self.performance
 
