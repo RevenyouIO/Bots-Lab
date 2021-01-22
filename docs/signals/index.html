@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+  
+  
+  
+  
+   <html class="no-js"> 
+
+  <head lang="en-us">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=10" />
+    <title>Signals - Bots By RevenYOU</title>
+    <meta name="generator" content="Hugo 0.76.5" />
+
+    
+    <meta name="description" content="BEM api v2 Documentation">
+    
+    <link rel="canonical" href="https://github.com/RevenyouIO/Bots-Lab/signals/">
+    
+    <meta name="author" content="Bots by RevenYOU">
+    
+
+    <meta property="og:url" content="https://github.com/RevenyouIO/Bots-Lab/signals/">
+    <meta property="og:title" content="Bots By RevenYOU">
+    <meta property="og:image" content="https://github.com/RevenyouIO/Bots-Lab/images/Bots_icon.png">
+    <meta name="apple-mobile-web-app-title" content="Bots By RevenYOU">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <link rel="shortcut icon" type="image/x-icon" href="https://github.com/RevenyouIO/Bots-Lab/images/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="https://github.com/RevenyouIO/Bots-Lab/images/favicon.ico">
+
+    <style>
+      @font-face {
+        font-family: 'Icon';
+        src: url('https://github.com/RevenyouIO/Bots-Lab/fonts/icon.eot');
+        src: url('https://github.com/RevenyouIO/Bots-Lab/fonts/icon.eot')
+               format('embedded-opentype'),
+             url('https://github.com/RevenyouIO/Bots-Lab/fonts/icon.woff')
+               format('woff'),
+             url('https://github.com/RevenyouIO/Bots-Lab/fonts/icon.ttf')
+               format('truetype'),
+             url('https://github.com/RevenyouIO/Bots-Lab/fonts/icon.svg')
+               format('svg');
+        font-weight: normal;
+        font-style: normal;
+      }
+    </style>
+
+    <link rel="stylesheet" href="https://github.com/RevenyouIO/Bots-Lab/stylesheets/application.css">
+    <link rel="stylesheet" href="https://github.com/RevenyouIO/Bots-Lab/stylesheets/temporary.css">
+    <link rel="stylesheet" href="https://github.com/RevenyouIO/Bots-Lab/stylesheets/palettes.css">
+    <link rel="stylesheet" href="https://github.com/RevenyouIO/Bots-Lab/stylesheets/highlight/highlight.css">
+
+    
+    
+    
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,700|Roboto&#43;Mono">
+    <style>
+      body, input {
+        font-family: 'Roboto', Helvetica, Arial, sans-serif;
+      }
+      pre, code {
+        font-family: 'Roboto Mono', 'Courier New', 'Courier', monospace;
+      }
+    </style>
+
+    
+    <script src="https://github.com/RevenyouIO/Bots-Lab/javascripts/modernizr.js"></script>
+
+    
+
+  </head>
+  <body class="palette-primary-light-blue palette-accent-teal">
+
+
+
+	
+	
+
+
+<div class="backdrop">
+	<div class="backdrop-paper"></div>
+</div>
+
+<input class="toggle" type="checkbox" id="toggle-drawer">
+<input class="toggle" type="checkbox" id="toggle-search">
+<label class="toggle-button overlay" for="toggle-drawer"></label>
+
+<header class="header">
+	<nav aria-label="Header">
+  <div class="bar default">
+    <div class="button button-menu" role="button" aria-label="Menu">
+      <label class="toggle-button icon icon-menu" for="toggle-drawer">
+        <span></span>
+      </label>
+    </div>
+    <div class="stretch">
+      <div class="title">
+        Signals
+      </div>
+    </div>
+
+    
+
+    
+    <div class="button button-github" role="button" aria-label="GitHub">
+      <a href="https://github.com/RevenyouIO" title="@RevenyouIO on GitHub" target="_blank" class="toggle-button icon icon-github"></a>
+    </div>
+    
+    
+        
+  </div>
+  <div class="bar search">
+    <div class="button button-close" role="button" aria-label="Close">
+      <label class="toggle-button icon icon-back" for="toggle-search"></label>
+    </div>
+    <div class="stretch">
+      <div class="field">
+        <input class="query" type="text" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck>
+      </div>
+    </div>
+    <div class="button button-reset" role="button" aria-label="Search">
+      <button class="toggle-button icon icon-close" id="reset-search"></button>
+    </div>
+  </div>
+</nav>
+</header>
+
+<main class="main">
+	<div class="drawer">
+		<nav aria-label="Navigation">
+  <a href="https://github.com/RevenyouIO/Bots-Lab" class="project">
+    <div class="banner">
+      
+        <div class="logo">
+          <img src="https://github.com/RevenyouIO/Bots-Labimages/Bots_icon.png">
+        </div>
+      
+      <div class="name">
+        <strong>Bots By RevenYOU <span class="version">2.0.0</span></strong>
+        
+          <br>
+          RevenyouIO/Bots-Lab
+        
+      </div>
+    </div>
+  </a>
+
+  <div class="scrollable">
+    <div class="wrapper">
+      
+        <ul class="repo">
+          <li class="repo-download">
+            <a href="https://github.com/RevenyouIO/Bots-Lab/archive/master.zip" target="_blank" title="Download" data-action="download">
+              <i class="icon icon-download"></i> Download
+            </a>
+          </li>
+          <li class="repo-stars">
+            <a href="https://github.com/RevenyouIO/Bots-Lab/stargazers" target="_blank" title="Stargazers" data-action="star">
+              <i class="icon icon-star"></i> Stars
+              <span class="count">&ndash;</span>
+            </a>
+          </li>
+        </ul>
+        <hr>
+      
+
+      <div class="toc">
+        
+        <ul>
+          
+
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="BEM API" href="https://github.com/RevenyouIO/Bots-Lab/">
+	
+	BEM API
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Orders" href="https://github.com/RevenyouIO/Bots-Lab/orders/">
+	
+	Orders
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a class="current" title="Signals" href="https://github.com/RevenyouIO/Bots-Lab/signals/">
+	
+	Signals
+</a>
+
+
+<ul id="scrollspy">
+</ul>
+
+
+  
+</li>
+
+
+        </ul>
+        
+
+        
+        <hr>
+        <span class="section">The author</span>
+        
+        <ul>
+          
+
+          
+          <li>
+            <a href="https://github.com/RevenyouIO" target="_blank" title="@RevenyouIO on GitHub">
+              @RevenyouIO on GitHub
+            </a>
+          </li>
+          
+
+          
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+</nav>
+
+	</div>
+
+	<article class="article">
+		<div class="wrapper">
+			<h1>Signals </h1>
+
+			<p>The Signal endpoints enable your bot to send and manage signals.
+A signal is a mini-strategy that allows your bot to define an entry point, close targets and
+stop-loss level. BEM will generate the corresponding orders and send them to the exchange at
+the appropriate time.</p>
+<h2 id="post-placesignal">[POST] placeSignal</h2>
+<h3 id="description">Description</h3>
+<p>Send a signal to the platform</p>
+<h3 id="parameters">Parameters</h3>
+<p>(Body)</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Name</th>
+<th style="text-align:center">Type</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:center">Mandatory</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">signalProvider</td>
+<td style="text-align:center">string</td>
+<td style="text-align:left">Name of the Bot</td>
+<td style="text-align:center">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left">signalProviderKey</td>
+<td style="text-align:center">string</td>
+<td style="text-align:left">Secret key</td>
+<td style="text-align:center">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left">extId</td>
+<td style="text-align:center">string</td>
+<td style="text-align:left">Unique ID generated by bot</td>
+<td style="text-align:center">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left">exchange</td>
+<td style="text-align:center">string</td>
+<td style="text-align:left">Target exchange for the order</td>
+<td style="text-align:center">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left">baseAsset</td>
+<td style="text-align:center">string</td>
+<td style="text-align:left">Base asset of the order</td>
+<td style="text-align:center">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left">quoteAsset</td>
+<td style="text-align:center">string</td>
+<td style="text-align:left">Quote asset of the order</td>
+<td style="text-align:center">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left">direction</td>
+<td style="text-align:center">string</td>
+<td style="text-align:left">&lsquo;buy2sell&rsquo; or &lsquo;sell2buy&rsquo;</td>
+<td style="text-align:center">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left">openLimitPrice</td>
+<td style="text-align:center">string</td>
+<td style="text-align:left">The level at which to open the position</td>
+<td style="text-align:center">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left">openQtyPct</td>
+<td style="text-align:center">string</td>
+<td style="text-align:left">The percentage of available asset to use</td>
+<td style="text-align:center">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left">openQtyAbs</td>
+<td style="text-align:center">string</td>
+<td style="text-align:left">Absolute value to use</td>
+<td style="text-align:center">Only Internal</td>
+</tr>
+<tr>
+<td style="text-align:left">openTtlType</td>
+<td style="text-align:center">string</td>
+<td style="text-align:left">Time To Last type for the opening order, &lsquo;gtc&rsquo; or &lsquo;secs&rsquo;</td>
+<td style="text-align:center">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left">openTtlSecs</td>
+<td style="text-align:center">string</td>
+<td style="text-align:left">Time To Last seconds</td>
+<td style="text-align:center">Yes if type = &lsquo;secs&rsquo;</td>
+</tr>
+<tr>
+<td style="text-align:left">closeTargets</td>
+<td style="text-align:center">[CloseTarget]</td>
+<td style="text-align:left">Array of CloseTargets</td>
+<td style="text-align:center">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left">closeTtlType</td>
+<td style="text-align:center">string</td>
+<td style="text-align:left">Time to Last type for close orders, &lsquo;gtc&rsquo; or &lsquo;secs&rsquo;</td>
+<td style="text-align:center">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left">closeTtlSecs</td>
+<td style="text-align:center">string</td>
+<td style="text-align:left">Time to Last seconds if type = &lsquo;secs&rsquo;</td>
+<td style="text-align:center">Yes if type = &lsquo;secs&rsquo;</td>
+</tr>
+<tr>
+<td style="text-align:left">slLimitPricePct</td>
+<td style="text-align:center">string</td>
+<td style="text-align:left">Stoploss order limit as pct away from &hellip;</td>
+<td style="text-align:center">No</td>
+</tr>
+<tr>
+<td style="text-align:left">slLimitPriceAbs</td>
+<td style="text-align:center">string</td>
+<td style="text-align:left">Absolute value stoploss order limit price</td>
+<td style="text-align:center">No</td>
+</tr>
+<tr>
+<td style="text-align:left">slStopPricePct</td>
+<td style="text-align:center">string</td>
+<td style="text-align:left">Stop loss trigger level as pct away from openLimitPrice</td>
+<td style="text-align:center">No</td>
+</tr>
+<tr>
+<td style="text-align:left">slStopPriceAbs</td>
+<td style="text-align:center">string</td>
+<td style="text-align:left">Stop loss trigger level as absolute value</td>
+<td style="text-align:center">No</td>
+</tr>
+</tbody>
+</table>
+<h3 id="closetarget">CloseTarget</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Name</th>
+<th style="text-align:center">Type</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:center">Mandatory</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">qtyPct</td>
+<td style="text-align:center">string</td>
+<td style="text-align:left">Percentage to close</td>
+<td style="text-align:center">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left">limitPricePct</td>
+<td style="text-align:center">string</td>
+<td style="text-align:left">Percentage away from average execution price of opening order</td>
+<td style="text-align:center">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left">limitPriceAbs</td>
+<td style="text-align:center">string</td>
+<td style="text-align:left">Absolute price level</td>
+<td style="text-align:center">Only Internal</td>
+</tr>
+</tbody>
+</table>
+<h3 id="example">Example</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">curl -X POST <span style="color:#e6db74">&#34;https://signal.revenyou.io/paper/api/signal/v2/placeSignal&#34;</span> -H  <span style="color:#e6db74">&#34;accept: application/xml&#34;</span> -H  <span style="color:#e6db74">&#34;Content-Type: application/json&#34;</span> -d <span style="color:#e6db74">&#34;{  \&#34;signalProvider\&#34;: \&#34;MyBot\&#34;,  \&#34;signalProviderKey\&#34;: \&#34;MyKey\&#34;,  \&#34;extId\&#34;: \&#34;0001\&#34;,  \&#34;exchange\&#34;: \&#34;binance\&#34;,  \&#34;baseAsset\&#34;: \&#34;BTC\&#34;,  \&#34;quoteAsset\&#34;: \&#34;USDT\&#34;,  \&#34;direction\&#34;: \&#34;buy2sell\&#34;,  \&#34;openLimitPrice\&#34;: \&#34;40000\&#34;,  \&#34;openQtyPct\&#34;: \&#34;60\&#34;,  \&#34;openTtlType\&#34;: \&#34;gtc\&#34;,  \&#34;closeTargets\&#34;: [    {      \&#34;qtyPct\&#34;: \&#34;100\&#34;,      \&#34;limitPricePct\&#34;: \&#34;5\&#34;    }  ]}&#34;</span>
+</code></pre></div><h3 id="response">Response</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Name</th>
+<th style="text-align:center">Type</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:center">Mandatory</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">succes</td>
+<td style="text-align:center">string</td>
+<td style="text-align:left">&lsquo;true&rsquo; or &lsquo;false&rsquo;</td>
+<td style="text-align:center">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left">id</td>
+<td style="text-align:center">string</td>
+<td style="text-align:left">BEM generated signal id</td>
+<td style="text-align:center">Yes if succes = true</td>
+</tr>
+<tr>
+<td style="text-align:left">status</td>
+<td style="text-align:center">string</td>
+<td style="text-align:left">pending / beingExecuted / beingCanceled / executed / canceled / rejected</td>
+<td style="text-align:center">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left">stage</td>
+<td style="text-align:center">string</td>
+<td style="text-align:left">open / takeProfit / tp2sl (from take profit to stoploss) / stopLoss</td>
+<td style="text-align:center">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left">rejReason</td>
+<td style="text-align:center">string</td>
+<td style="text-align:left"></td>
+<td style="text-align:center">No</td>
+</tr>
+</tbody>
+</table>
+<h2 id="post-cancelsignal">[POST] cancelSignal</h2>
+<h3 id="description-1">Description</h3>
+<p>Cancel an active signal</p>
+<h3 id="parameters-1">Parameters</h3>
+<p>(Body)</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Name</th>
+<th style="text-align:center">Type</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:center">Mandatory</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">signalProvider</td>
+<td style="text-align:center">string</td>
+<td style="text-align:left">Name of the Bot</td>
+<td style="text-align:center">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left">signalProviderKey</td>
+<td style="text-align:center">string</td>
+<td style="text-align:left">Secret key</td>
+<td style="text-align:center">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left">signalId</td>
+<td style="text-align:center">string</td>
+<td style="text-align:left">Unique ID generated by BEM</td>
+<td style="text-align:center">Yes or extId</td>
+</tr>
+<tr>
+<td style="text-align:left">extId</td>
+<td style="text-align:center">string</td>
+<td style="text-align:left">Unique ID generated by bot</td>
+<td style="text-align:center">Yes or signalId</td>
+</tr>
+</tbody>
+</table>
+<h3 id="example-1">Example</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">curl -X POST <span style="color:#e6db74">&#34;https://signal.revenyou.io/paper/api/signal/v2/cancelSignal&#34;</span> -H  <span style="color:#e6db74">&#34;accept: application/xml&#34;</span> -H  <span style="color:#e6db74">&#34;Content-Type: application/json&#34;</span> -d <span style="color:#e6db74">&#34;{  \&#34;signalProvider\&#34;: \&#34;MyBot\&#34;,  \&#34;signalProviderKey\&#34;: \&#34;MyKey\&#34;,  \&#34;signalId\&#34;: \&#34;BEMId_001\&#34;,  \&#34;extId\&#34;: \&#34;MyId_001\&#34;}&#34;</span>
+</code></pre></div><h3 id="response-1">Response</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Name</th>
+<th style="text-align:center">Type</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:center">Mandatory</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">succes</td>
+<td style="text-align:center">string</td>
+<td style="text-align:left">&lsquo;true&rsquo; or &lsquo;false&rsquo;</td>
+<td style="text-align:center">Yes</td>
+</tr>
+</tbody>
+</table>
+<h2 id="get-getsignalstate">[GET] getSignalState</h2>
+<h3 id="description-2">Description</h3>
+<p>Retreive the current state of a specific signal</p>
+<h3 id="parameters-2">Parameters</h3>
+<p>(Query)</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Name</th>
+<th style="text-align:center">Type</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:center">Mandatory</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">signalProvider</td>
+<td style="text-align:center">string</td>
+<td style="text-align:left">Name of the Bot</td>
+<td style="text-align:center">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left">signalProviderKey</td>
+<td style="text-align:center">string</td>
+<td style="text-align:left">Secret key</td>
+<td style="text-align:center">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left">signalId</td>
+<td style="text-align:center">string</td>
+<td style="text-align:left">Unique ID generated by BEM</td>
+<td style="text-align:center">Yes or extId</td>
+</tr>
+<tr>
+<td style="text-align:left">extId</td>
+<td style="text-align:center">string</td>
+<td style="text-align:left">Unique ID generated by bot</td>
+<td style="text-align:center">Yes or signalId</td>
+</tr>
+</tbody>
+</table>
+<h3 id="example-2">Example</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">curl -X GET <span style="color:#e6db74">&#34;https://signal.revenyou.io/paper/api/signal/v2/getSignalState?signalProvider=MyBot&amp;signalProviderKey=MyKey&amp;signalId=BEMId_001&amp;extId=MyId_001&#34;</span> -H  <span style="color:#e6db74">&#34;accept: application/xml&#34;</span>
+</code></pre></div><h3 id="response-2">Response</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Name</th>
+<th style="text-align:center">Type</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:center">Mandatory</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">succes</td>
+<td style="text-align:center">string</td>
+<td style="text-align:left">&lsquo;true&rsquo; or &lsquo;false&rsquo;</td>
+<td style="text-align:center">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left">id</td>
+<td style="text-align:center">string</td>
+<td style="text-align:left">BEM generated signal id</td>
+<td style="text-align:center">Yes if succes = true</td>
+</tr>
+<tr>
+<td style="text-align:left">status</td>
+<td style="text-align:center">string</td>
+<td style="text-align:left">pending / beingExecuted / beingCanceled / executed / canceled / rejected</td>
+<td style="text-align:center">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left">stage</td>
+<td style="text-align:center">string</td>
+<td style="text-align:left">open / takeProfit / tp2sl (from take profit to stoploss) / stopLoss</td>
+<td style="text-align:center">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left">rejReason</td>
+<td style="text-align:center">string</td>
+<td style="text-align:left"></td>
+<td style="text-align:center">No</td>
+</tr>
+</tbody>
+</table>
+<h2 id="get-getsignalinfo">[GET] getSignalInfo</h2>
+<h3 id="description-3">Description</h3>
+<p>Retreive complete info on a specific signal</p>
+<h3 id="parameters-3">Parameters</h3>
+<p>(Query)</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Name</th>
+<th style="text-align:center">Type</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:center">Mandatory</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">signalProvider</td>
+<td style="text-align:center">string</td>
+<td style="text-align:left">Name of the Bot</td>
+<td style="text-align:center">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left">signalProviderKey</td>
+<td style="text-align:center">string</td>
+<td style="text-align:left">Secret key</td>
+<td style="text-align:center">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left">signalId</td>
+<td style="text-align:center">string</td>
+<td style="text-align:left">Unique ID generated by BEM</td>
+<td style="text-align:center">Yes or extId</td>
+</tr>
+<tr>
+<td style="text-align:left">extId</td>
+<td style="text-align:center">string</td>
+<td style="text-align:left">Unique ID generated by bot</td>
+<td style="text-align:center">Yes or signalId</td>
+</tr>
+</tbody>
+</table>
+<h3 id="example-3">Example</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">curl -X GET <span style="color:#e6db74">&#34;https://signal.revenyou.io/paper/api/signal/v2/getSignalInfo?signalProvider=MyBot&amp;signalProviderKey=MyKey&amp;signalId=BEMId_001&amp;extId=MyId_001&#34;</span> -H  <span style="color:#e6db74">&#34;accept: application/xml&#34;</span>
+</code></pre></div><h3 id="response-3">Response</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Name</th>
+<th style="text-align:center">Type</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:center">Mandatory</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">succes</td>
+<td style="text-align:center">string</td>
+<td style="text-align:left">&lsquo;true&rsquo; or &lsquo;false&rsquo;</td>
+<td style="text-align:center">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left">id</td>
+<td style="text-align:center">string</td>
+<td style="text-align:left">BEM generated signal id</td>
+<td style="text-align:center">Yes if succes = true</td>
+</tr>
+<tr>
+<td style="text-align:left">extId</td>
+<td style="text-align:center">string</td>
+<td style="text-align:left">Unique ID generated by bot</td>
+<td style="text-align:center">Yes or signalId</td>
+</tr>
+<tr>
+<td style="text-align:left">signalProvider</td>
+<td style="text-align:center">string</td>
+<td style="text-align:left">Name of the Bot</td>
+<td style="text-align:center">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left">exchange</td>
+<td style="text-align:center">string</td>
+<td style="text-align:left">Target exchange for the order</td>
+<td style="text-align:center">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left">baseAsset</td>
+<td style="text-align:center">string</td>
+<td style="text-align:left">Base asset of the order</td>
+<td style="text-align:center">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left">quoteAsset</td>
+<td style="text-align:center">string</td>
+<td style="text-align:left">Quote asset of the order</td>
+<td style="text-align:center">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left">direction</td>
+<td style="text-align:center">string</td>
+<td style="text-align:left">&lsquo;buy2sell&rsquo; or &lsquo;sell2buy&rsquo;</td>
+<td style="text-align:center">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left">status</td>
+<td style="text-align:center">string</td>
+<td style="text-align:left">pending / beingExecuted / beingCanceled / executed / canceled / rejected</td>
+<td style="text-align:center">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left">stage</td>
+<td style="text-align:center">string</td>
+<td style="text-align:left">open / takeProfit / tp2sl (from take profit to stoploss) / stopLoss</td>
+<td style="text-align:center">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left">rejReason</td>
+<td style="text-align:center">string</td>
+<td style="text-align:left"></td>
+<td style="text-align:center">No</td>
+</tr>
+<tr>
+<td style="text-align:left">openLimitPrice</td>
+<td style="text-align:center">string</td>
+<td style="text-align:left"></td>
+<td style="text-align:center">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left">openQtyPct</td>
+<td style="text-align:center">string</td>
+<td style="text-align:left"></td>
+<td style="text-align:center">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left">openQtyAbs</td>
+<td style="text-align:center">string</td>
+<td style="text-align:left"></td>
+<td style="text-align:center">Internal only</td>
+</tr>
+<tr>
+<td style="text-align:left">openTtlType</td>
+<td style="text-align:center">string</td>
+<td style="text-align:left">&lsquo;gtc&rsquo; or &lsquo;secs&rsquo;</td>
+<td style="text-align:center">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left">openTtlSecs</td>
+<td style="text-align:center">string</td>
+<td style="text-align:left">Present if type = &lsquo;secs&rsquo;</td>
+<td style="text-align:center">if type = &lsquo;secs&rsquo;</td>
+</tr>
+<tr>
+<td style="text-align:left">openOrder</td>
+<td style="text-align:center">Order Object</td>
+<td style="text-align:left">Associated order if present</td>
+<td style="text-align:center">No</td>
+</tr>
+<tr>
+<td style="text-align:left">closeTargets</td>
+<td style="text-align:center">Close Target object</td>
+<td style="text-align:left">Associated CloseTargets</td>
+<td style="text-align:center">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left">closeTtlType</td>
+<td style="text-align:center">string</td>
+<td style="text-align:left">&lsquo;gtc&rsquo; or &lsquo;secs&rsquo;</td>
+<td style="text-align:center">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left">closeTtlSecs</td>
+<td style="text-align:center">string</td>
+<td style="text-align:left">Number of seconds if type = &lsquo;secs&rsquo;</td>
+<td style="text-align:center">if type = &lsquo;secs&rsquo;</td>
+</tr>
+<tr>
+<td style="text-align:left">slIsDefined</td>
+<td style="text-align:center">string</td>
+<td style="text-align:left">Signals if stoploss is defined; &lsquo;yes&rsquo; or &lsquo;no&rsquo;</td>
+<td style="text-align:center">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left">slLimitPriceIsAbs</td>
+<td style="text-align:center">string</td>
+<td style="text-align:left">Is limit price abs or pct</td>
+<td style="text-align:center">Yes if slIsDefined</td>
+</tr>
+<tr>
+<td style="text-align:left">slLimitPriceVal</td>
+<td style="text-align:center">string</td>
+<td style="text-align:left">Limit price value</td>
+<td style="text-align:center">Yes if slIsDefined</td>
+</tr>
+<tr>
+<td style="text-align:left">slStopPriceIsAbs</td>
+<td style="text-align:center">string</td>
+<td style="text-align:left">Is stop price abs or pct</td>
+<td style="text-align:center">Yes if slIsDefined</td>
+</tr>
+<tr>
+<td style="text-align:left">slStopPriceVal</td>
+<td style="text-align:center">string</td>
+<td style="text-align:left">Stop level value</td>
+<td style="text-align:center">Yes if slIsDefined</td>
+</tr>
+<tr>
+<td style="text-align:left">slOrder</td>
+<td style="text-align:center">Order object</td>
+<td style="text-align:left">The stop loss order associated with this signal</td>
+<td style="text-align:center">No</td>
+</tr>
+<tr>
+<td style="text-align:left">baseFree</td>
+<td style="text-align:center">Asset Info object</td>
+<td style="text-align:left"></td>
+<td style="text-align:center">Only Internal</td>
+</tr>
+<tr>
+<td style="text-align:left">quoteFree</td>
+<td style="text-align:center">Asset Info object</td>
+<td style="text-align:left"></td>
+<td style="text-align:center">Only Internal</td>
+</tr>
+<tr>
+<td style="text-align:left">baseLocked</td>
+<td style="text-align:center">Asset Info object</td>
+<td style="text-align:left"></td>
+<td style="text-align:center">Only Internal</td>
+</tr>
+<tr>
+<td style="text-align:left">quoteLocked</td>
+<td style="text-align:center">Asset Info object</td>
+<td style="text-align:left"></td>
+<td style="text-align:center">Only Internal</td>
+</tr>
+</tbody>
+</table>
+<h3 id="asset-info">Asset Info</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Name</th>
+<th style="text-align:center">Type</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:center">Mandatory</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">exchange</td>
+<td style="text-align:center">string</td>
+<td style="text-align:left">Exchange of this asset</td>
+<td style="text-align:center">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left">asset</td>
+<td style="text-align:center">string</td>
+<td style="text-align:left"></td>
+<td style="text-align:center">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left">signalId</td>
+<td style="text-align:center">string</td>
+<td style="text-align:left"></td>
+<td style="text-align:center">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left">orderId</td>
+<td style="text-align:center">string</td>
+<td style="text-align:left"></td>
+<td style="text-align:center">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left">amount</td>
+<td style="text-align:center">string</td>
+<td style="text-align:left"></td>
+<td style="text-align:center">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left">amountBase</td>
+<td style="text-align:center">string</td>
+<td style="text-align:left"></td>
+<td style="text-align:center">Yes</td>
+</tr>
+</tbody>
+</table>
+<h2 id="get-getsignals">[GET] getSignals</h2>
+<h3 id="description-4">Description</h3>
+<p>Retreive all signals from a bot</p>
+<h3 id="parameters-4">Parameters</h3>
+<p>(Query)</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Name</th>
+<th style="text-align:center">Type</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:center">Mandatory</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">signalProvider</td>
+<td style="text-align:center">string</td>
+<td style="text-align:left">Name of the Bot</td>
+<td style="text-align:center">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left">signalProviderKey</td>
+<td style="text-align:center">string</td>
+<td style="text-align:left">Secret key</td>
+<td style="text-align:center">Yes</td>
+</tr>
+</tbody>
+</table>
+<h3 id="example-4">Example</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">curl -X GET <span style="color:#e6db74">&#34;https://signal.revenyou.io/paper/api/signal/v2/getSignals?signalProvider=MyBot&amp;signalProviderKey=MyKey&#34;</span> -H  <span style="color:#e6db74">&#34;accept: application/xml&#34;</span>
+</code></pre></div><h3 id="response-4">Response</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Name</th>
+<th style="text-align:center">Type</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:center">Mandatory</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">succes</td>
+<td style="text-align:center">string</td>
+<td style="text-align:left">&lsquo;true&rsquo; or &lsquo;false&rsquo;</td>
+<td style="text-align:center">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left">signals</td>
+<td style="text-align:center">[SignalInfos]</td>
+<td style="text-align:left">See getSignalInfo response</td>
+<td style="text-align:center">Yes</td>
+</tr>
+</tbody>
+</table>
+
+
+			<aside class="copyright" role="note">
+				
+				&copy; 2021 RevenYOU &ndash;
+				
+				Documentation built with
+				<a href="https://www.gohugo.io" target="_blank">Hugo</a>
+				using the
+				<a href="http://github.com/digitalcraftsman/hugo-material-docs" target="_blank">Material</a> theme.
+			</aside>
+
+			<footer class="footer">
+				
+
+<nav class="pagination" aria-label="Footer">
+  <div class="previous">
+  
+  </div>
+
+  <div class="next">
+  
+      <a href="https://github.com/RevenyouIO/Bots-Lab/orders/" title="Orders">
+        <span class="direction">
+          Next
+        </span>
+        <div class="page">
+          <div class="stretch">
+            <div class="title">
+              Orders
+            </div>
+          </div>
+          <div class="button button-next" role="button" aria-label="Next">
+            <i class="icon icon-forward"></i>
+          </div>
+        </div>
+      </a>
+  
+  </div>
+</nav>
+
+
+
+
+
+			</footer>
+		</div>
+	</article>
+
+	<div class="results" role="status" aria-live="polite">
+		<div class="scrollable">
+			<div class="wrapper">
+				<div class="meta"></div>
+				<div class="list"></div>
+			</div>
+		</div>
+	</div>
+</main>
+
+    <script>
+    
+      var base_url = 'https:\/\/github.com\/RevenyouIO\/Bots-Lab';
+      var repo_id  = 'RevenyouIO\/Bots-Lab';
+    
+    </script>
+
+    <script src="https://github.com/RevenyouIO/Bots-Lab/javascripts/application.js"></script>
+    
+
+    <script>
+      /* Add headers to scrollspy */
+      var headers   = document.getElementsByTagName("h2");
+      var scrollspy = document.getElementById('scrollspy');
+
+      if(scrollspy) {
+        if(headers.length > 0) {
+          for(var i = 0; i < headers.length; i++) {
+            var li = document.createElement("li");
+            li.setAttribute("class", "anchor");
+
+            var a  = document.createElement("a");
+            a.setAttribute("href", "#" + headers[i].id);
+            a.setAttribute("title", headers[i].innerHTML);
+            a.innerHTML = headers[i].innerHTML;
+
+            li.appendChild(a)
+            scrollspy.appendChild(li);
+          }
+        } else {
+          scrollspy.parentElement.removeChild(scrollspy)
+        }
+
+
+        /* Add permanent link next to the headers */
+        var headers = document.querySelectorAll("h1, h2, h3, h4, h5, h6");
+
+        for(var i = 0; i < headers.length; i++) {
+            var a = document.createElement("a");
+            a.setAttribute("class", "headerlink");
+            a.setAttribute("href", "#" + headers[i].id);
+            a.setAttribute("title", "Permanent link")
+            a.innerHTML = "#";
+            headers[i].appendChild(a);
+        }
+      }
+    </script>
+
+    
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </body>
+</html>
+

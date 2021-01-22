@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+  
+  
+  
+  
+   <html class="no-js"> 
+
+  <head lang="en-us">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=10" />
+    <title>BEM API Reference</title>
+    <meta name="generator" content="Hugo 0.76.5" />
+
+    
+    <meta name="description" content="BEM api v2 Documentation">
+    
+    <link rel="canonical" href="https://github.com/RevenyouIO/Bots-Lab/">
+    
+    <meta name="author" content="Bots by RevenYOU">
+    
+
+    <meta property="og:url" content="https://github.com/RevenyouIO/Bots-Lab/">
+    <meta property="og:title" content="Bots By RevenYOU">
+    <meta property="og:image" content="https://github.com/RevenyouIO/Bots-Lab/images/Bots_icon.png">
+    <meta name="apple-mobile-web-app-title" content="Bots By RevenYOU">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <link rel="shortcut icon" type="image/x-icon" href="https://github.com/RevenyouIO/Bots-Lab/images/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="https://github.com/RevenyouIO/Bots-Lab/images/favicon.ico">
+
+    <style>
+      @font-face {
+        font-family: 'Icon';
+        src: url('https://github.com/RevenyouIO/Bots-Lab/fonts/icon.eot');
+        src: url('https://github.com/RevenyouIO/Bots-Lab/fonts/icon.eot')
+               format('embedded-opentype'),
+             url('https://github.com/RevenyouIO/Bots-Lab/fonts/icon.woff')
+               format('woff'),
+             url('https://github.com/RevenyouIO/Bots-Lab/fonts/icon.ttf')
+               format('truetype'),
+             url('https://github.com/RevenyouIO/Bots-Lab/fonts/icon.svg')
+               format('svg');
+        font-weight: normal;
+        font-style: normal;
+      }
+    </style>
+
+    <link rel="stylesheet" href="https://github.com/RevenyouIO/Bots-Lab/stylesheets/application.css">
+    <link rel="stylesheet" href="https://github.com/RevenyouIO/Bots-Lab/stylesheets/temporary.css">
+    <link rel="stylesheet" href="https://github.com/RevenyouIO/Bots-Lab/stylesheets/palettes.css">
+    <link rel="stylesheet" href="https://github.com/RevenyouIO/Bots-Lab/stylesheets/highlight/highlight.css">
+
+    
+    
+    
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,700|Roboto&#43;Mono">
+    <style>
+      body, input {
+        font-family: 'Roboto', Helvetica, Arial, sans-serif;
+      }
+      pre, code {
+        font-family: 'Roboto Mono', 'Courier New', 'Courier', monospace;
+      }
+    </style>
+
+    
+    <script src="https://github.com/RevenyouIO/Bots-Lab/javascripts/modernizr.js"></script>
+
+    
+    <link href="https://github.com/RevenyouIO/Bots-Lab/index.xml" rel="alternate" type="application/rss+xml" title="Bots By RevenYOU" />
+    <link href="https://github.com/RevenyouIO/Bots-Lab/index.xml" rel="feed" type="application/rss+xml" title="Bots By RevenYOU" />
+    
+
+  </head>
+  <body class="palette-primary-light-blue palette-accent-teal">
+
+
+
+	
+	
+
+
+<div class="backdrop">
+	<div class="backdrop-paper"></div>
+</div>
+
+<input class="toggle" type="checkbox" id="toggle-drawer">
+<input class="toggle" type="checkbox" id="toggle-search">
+<label class="toggle-button overlay" for="toggle-drawer"></label>
+
+<header class="header">
+	<nav aria-label="Header">
+  <div class="bar default">
+    <div class="button button-menu" role="button" aria-label="Menu">
+      <label class="toggle-button icon icon-menu" for="toggle-drawer">
+        <span></span>
+      </label>
+    </div>
+    <div class="stretch">
+      <div class="title">
+        BEM API Reference
+      </div>
+    </div>
+
+    
+
+    
+    <div class="button button-github" role="button" aria-label="GitHub">
+      <a href="https://github.com/RevenyouIO" title="@RevenyouIO on GitHub" target="_blank" class="toggle-button icon icon-github"></a>
+    </div>
+    
+    
+        
+  </div>
+  <div class="bar search">
+    <div class="button button-close" role="button" aria-label="Close">
+      <label class="toggle-button icon icon-back" for="toggle-search"></label>
+    </div>
+    <div class="stretch">
+      <div class="field">
+        <input class="query" type="text" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck>
+      </div>
+    </div>
+    <div class="button button-reset" role="button" aria-label="Search">
+      <button class="toggle-button icon icon-close" id="reset-search"></button>
+    </div>
+  </div>
+</nav>
+</header>
+
+<main class="main">
+	<div class="drawer">
+		<nav aria-label="Navigation">
+  <a href="https://github.com/RevenyouIO/Bots-Lab" class="project">
+    <div class="banner">
+      
+        <div class="logo">
+          <img src="https://github.com/RevenyouIO/Bots-Labimages/Bots_icon.png">
+        </div>
+      
+      <div class="name">
+        <strong>Bots By RevenYOU <span class="version">2.0.0</span></strong>
+        
+          <br>
+          RevenyouIO/Bots-Lab
+        
+      </div>
+    </div>
+  </a>
+
+  <div class="scrollable">
+    <div class="wrapper">
+      
+        <ul class="repo">
+          <li class="repo-download">
+            <a href="https://github.com/RevenyouIO/Bots-Lab/archive/master.zip" target="_blank" title="Download" data-action="download">
+              <i class="icon icon-download"></i> Download
+            </a>
+          </li>
+          <li class="repo-stars">
+            <a href="https://github.com/RevenyouIO/Bots-Lab/stargazers" target="_blank" title="Stargazers" data-action="star">
+              <i class="icon icon-star"></i> Stars
+              <span class="count">&ndash;</span>
+            </a>
+          </li>
+        </ul>
+        <hr>
+      
+
+      <div class="toc">
+        
+        <ul>
+          
+
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="BEM API" href="https://github.com/RevenyouIO/Bots-Lab/">
+	
+	BEM API
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Orders" href="https://github.com/RevenyouIO/Bots-Lab/orders/">
+	
+	Orders
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Signals" href="https://github.com/RevenyouIO/Bots-Lab/signals/">
+	
+	Signals
+</a>
+
+
+
+  
+</li>
+
+
+        </ul>
+        
+
+        
+        <hr>
+        <span class="section">The author</span>
+        
+        <ul>
+          
+
+          
+          <li>
+            <a href="https://github.com/RevenyouIO" target="_blank" title="@RevenyouIO on GitHub">
+              @RevenyouIO on GitHub
+            </a>
+          </li>
+          
+
+          
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+</nav>
+
+	</div>
+
+	<article class="article">
+		<div class="wrapper">
+			
+				<h1>BEM API Reference </h1>
+
+				<h2 id="introduction">Introduction</h2>
+<p>Welcome to the BEM api documentation page. Here you can find all information needed to access the api and start building bots for the Bots platform.</p>
+<p>In order to gain access to the api, you need to create a bot name and obtain a key for it. Both can be done in the app. Please see the bot creator documentation how to achieve this. You can find it <a href="https://somelink.com">here</a></p>
+<p>The BEM api is REST api that gives your bots access to the Bots platform. It enables you to create Orders and Signals; both are explained here.</p>
+<h2 id="url">URL</h2>
+<p>When developing/testing your bots, you should use: <a href="https://signal.revenyou.io/paper/api/signal/v2">https://signal.revenyou.io/paper/api/signal/v2</a><br>
+Once your bot comes out of quarantine use:         <a href="https://signal.revenyou.io/production/api/signal/v2">https://signal.revenyou.io/production/api/signal/v2</a></p>
+<h2 id="openapi-description">OpenAPI description</h2>
+<p>The OpenAPI file can be downloaded here: <a href="https://somelink.com">BEM.yaml</a>.<br>
+Use this to explore the BEM API by uploading it in the <a href="https://editor.swagger.io/">Swagger editor</a></p>
+<h2 id="faq">FAQ</h2>
+<p>Coming soon..</p>
+
+			
+
+			<aside class="copyright" role="note">
+				
+				&copy; 2021 RevenYOU &ndash;
+				
+				Documentation built with
+				<a href="https://www.gohugo.io" target="_blank">Hugo</a>
+				using the
+				<a href="http://github.com/digitalcraftsman/hugo-material-docs" target="_blank">Material</a> theme.
+			</aside>
+
+			<footer class="footer">
+				
+
+
+
+<nav class="pagination" aria-label="Footer">
+  <div class="previous">
+  </div>
+
+  
+  
+  <div class="next">
+      <a href="https://github.com/RevenyouIO/Bots-Lab/tags/" title="Tags">
+        <span class="direction">
+          Next
+        </span>
+        <div class="page">
+          <div class="stretch">
+            <div class="title">
+              Tags
+            </div>
+          </div>
+          <div class="button button-next" role="button" aria-label="Next">
+            <i class="icon icon-forward"></i>
+          </div>
+        </div>
+      </a>
+  </div>
+</nav>
+
+
+
+			</footer>
+		</div>
+	</article>
+
+	<div class="results" role="status" aria-live="polite">
+		<div class="scrollable">
+			<div class="wrapper">
+				<div class="meta"></div>
+				<div class="list"></div>
+			</div>
+		</div>
+	</div>
+</main>
+
+    <script>
+    
+      var base_url = 'https:\/\/github.com\/RevenyouIO\/Bots-Lab';
+      var repo_id  = 'RevenyouIO\/Bots-Lab';
+    
+    </script>
+
+    <script src="https://github.com/RevenyouIO/Bots-Lab/javascripts/application.js"></script>
+    
+
+    <script>
+      /* Add headers to scrollspy */
+      var headers   = document.getElementsByTagName("h2");
+      var scrollspy = document.getElementById('scrollspy');
+
+      if(scrollspy) {
+        if(headers.length > 0) {
+          for(var i = 0; i < headers.length; i++) {
+            var li = document.createElement("li");
+            li.setAttribute("class", "anchor");
+
+            var a  = document.createElement("a");
+            a.setAttribute("href", "#" + headers[i].id);
+            a.setAttribute("title", headers[i].innerHTML);
+            a.innerHTML = headers[i].innerHTML;
+
+            li.appendChild(a)
+            scrollspy.appendChild(li);
+          }
+        } else {
+          scrollspy.parentElement.removeChild(scrollspy)
+        }
+
+
+        /* Add permanent link next to the headers */
+        var headers = document.querySelectorAll("h1, h2, h3, h4, h5, h6");
+
+        for(var i = 0; i < headers.length; i++) {
+            var a = document.createElement("a");
+            a.setAttribute("class", "headerlink");
+            a.setAttribute("href", "#" + headers[i].id);
+            a.setAttribute("title", "Permanent link")
+            a.innerHTML = "#";
+            headers[i].appendChild(a);
+        }
+      }
+    </script>
+
+    
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </body>
+</html>
+

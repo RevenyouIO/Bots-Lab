@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://github.com/RevenyouIO/Bots-Lab/orders/</loc>
+    <lastmod>2021-01-12T00:00:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://github.com/RevenyouIO/Bots-Lab/signals/</loc>
+    <lastmod>2021-01-12T00:00:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://github.com/RevenyouIO/Bots-Lab/</loc>
+    <lastmod>2016-03-08T21:07:13+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://github.com/RevenyouIO/Bots-Lab/categories/</loc>
+  </url>
+  
+  <url>
+    <loc>https://github.com/RevenyouIO/Bots-Lab/tags/</loc>
+  </url>
+  
+</urlset>
