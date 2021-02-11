@@ -1,7 +1,7 @@
 ####################################
 # Bots_api.py
 # Facilitates accessing the BEM api
-# Version: 0.0.1 - Incomplete
+# Version: 0.9.0
 # contact: philip@revenyou.io
 # (C) Bots by RevenYOU
 ####################################
@@ -48,6 +48,25 @@ class CancelSignalParameters:
     extId: str = None
 
 @dataclass
+class SignalStateRequest:
+    signalProvider: str = None
+    signalProviderKey: str = None
+    signalId: str = None
+    extId: str = None
+
+@dataclass
+class SignalInfoRequest:
+    signalProvider: str = None
+    signalProviderKey: str = None
+    signalId: str = None
+    extId: str = None
+
+@dataclass
+class SignalsRequest:
+    signalProvider: str = None
+    signalProviderKey: str = None
+
+@dataclass
 class OrderParameters:
     signalProvider: str = None
     signalProviderKey: str = None
@@ -85,6 +104,11 @@ class OrderInfoRequest:
     signalProviderKey: str = None
     orderId: str = None
     extId: str = None
+
+@dataclass
+class OrdersRequest:
+    signalProvider: str = None
+    signalProviderKey: str = None
 
 
 class BEM_API:
@@ -145,7 +169,11 @@ class BEM_API:
         sigData['openLimitPrice'] = params.openLimitPrice
         sigData['openQtyPct'] = params.openQtyPct
         sigData['openTtlType'] = params.openTtlType
+        if(params.openTtlSecs is not None):
+            sigData['openTtlSecs'] = params.openTtlSecs
         sigData['closeTtlType'] = params.closeTtlType
+        if(params.closeTtlSecs is not None):
+            sigData['closeTtlSecs'] = params.closeTtlSecs
         sigData['slLimitPricePct'] = params.slLimitPricePct
         sigData['slStopPricePct'] = params.slStopPricePct
         sigData['slTtlType'] = params.slTtlType
@@ -164,13 +192,62 @@ class BEM_API:
         cancelRequest = {}
         cancelRequest['signalProvider'] = params.signalProvider
         cancelRequest['signalProviderKey'] = params.signalProviderKey
-        cancelRequest['extId'] = params.extId
+        if(params.signalId is not None):
+            cancelRequest['signalId'] = params.signalId
+        if(params.extId is not None):
+            cancelRequest['extId'] = params.extId
 
         jsonData =json.dumps(cancelRequest)
 
         response = requests.post(url=path, data=jsonData)
 
         return response.text
+
+    # Call BEM getSignalState
+    def getSignalState(self, params: SignalStateRequest):
+
+        path = self.host + 'getSignalState'
+        
+        pars = {'signalProvider': params.signalProvider, 'signalProviderKey': params.signalProviderKey}
+
+        if(params.extId is not None):
+            pars['extId'] = params.extId
+
+        if(params.signalId is not None):
+            pars['signalId'] = params.signalId
+
+        response = requests.get(url= path, params=pars)
+
+        return response.text
+
+    # Call BEM getSignalInfo
+    def getSignalInfo(self, params: SignalInfoRequest):
+
+        path = self.host + 'getSignalInfo'
+
+        pars = {'signalProvider': params.signalProvider, 'signalProviderKey': params.signalProviderKey}
+
+        if(params.extId is not None):
+            pars['extId'] = params.extId
+
+        if(params.signalId is not None):
+            pars['signalId'] = params.signalId
+
+        response = requests.get(url= path, params=pars)
+
+        return response.text
+
+    # Get list of active signals
+    def getSignals(self, params: SignalsRequest):
+
+        path = self.host + 'getSignals'
+
+        pars = {'signalProvider': params.signalProvider, 'signalProviderKey': params.signalProviderKey}
+
+        response = requests.get(url= path, params=pars)
+
+        return response.text
+
     
     # Call BEM placeOrder
     def placeOrder(self, params: OrderParameters):
@@ -189,7 +266,12 @@ class BEM_API:
         orderData['qtyPct'] = params.qtyPct
         orderData['side'] = params.side
         orderData['ttlType'] = params.ttlType
+        if(params.ttlSecs is not None):
+            orderData['ttlSecs'] = params.ttlSecs
         orderData['type'] = params.type
+        if(params.stopPrice is not None):
+            orderData['stopPrice'] = params.stopPrice
+        orderData['responseType'] = params.responseType
 
         jsonData =json.dumps(orderData)
 
@@ -251,6 +333,17 @@ class BEM_API:
         jsonData =json.dumps(cancelRequest)
 
         response = requests.post(url=path, data=jsonData)
+
+        return response.text
+        
+    # Get list of active orders
+    def getOrders(self, params: OrdersRequest):
+
+        path = self.host + 'getOrders'
+
+        pars = {'signalProvider': params.signalProvider, 'signalProviderKey': params.signalProviderKey}
+
+        response = requests.get(url= path, params=pars)
 
         return response.text
         
