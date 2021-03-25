@@ -110,6 +110,12 @@ class OrdersRequest:
     signalProvider: str = None
     signalProviderKey: str = None
 
+@dataclass
+class PositionRequest:
+    signalProvider: str = None
+    signalProviderKey: str = None
+    exchange: str = None
+    baseAsset: str = None
 
 class BEM_API:
     """
@@ -347,3 +353,15 @@ class BEM_API:
 
         return response.text
         
+    # Get bot positions
+    def getBotAssetsPct(self, params: PositionRequest):
+
+        path = self.host + 'getBotAssetsPct'
+
+        pars = {'signalProvider': params.signalProvider, 'signalProviderKey': params.signalProviderKey, 
+                'exchange': params.exchange, 'baseAsset': params.baseAsset}
+
+        response = requests.get(url= path, params=pars)
+
+        return response.text
+
