@@ -8,3 +8,4 @@ empyrical==0.5.3
 numpy==1.18.2
 websocket-client==0.57.0
 mplfinance
+Jinja2>=2.10.1,<3.1
