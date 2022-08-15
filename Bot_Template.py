@@ -22,7 +22,7 @@ import schedule
 #TO BE ABLE TO USE BA/botslib.bots_api, YOU WILL HAVE TO CLONE THE GITHUB REPO - https://github.com/RevenyouIO/Bots-Lab
 
 
-#BOTS API URL - PAPER MODE - YOU CAN USE THE URL BELOW WHEN YOU WANT TO DEVELOP AND TEST YOUR BOT
+#BOTS API URL - PAPER MODE - USE THE URL BELOW  IN ORDER  TO DEVELOP AND TEST YOUR BOT
 
 bots_platform = ba.BEM_API('https://signal.revenyou.io/paper/api/signal/v2/')
 
@@ -69,7 +69,7 @@ def get_buy_or_sell_signal(data):
                                        ttlSecs=str(40))
             print(json.loads(bots_platform.placeOrder(order)))
             state_request = ba.OrderStateRequest(signalProvider='BOT_NAME',signalProviderKey='BOT_KEY, extId =order.extId)
-            position_request = ba.PositionRequest(signalProvider='Test490',signalProviderKey='CAXX1AGRDULAOKWN',exchange='binance', baseAsset='USDT')
+            position_request = ba.PositionRequest(signalProvider='BOT_NAME',signalProviderKey='API_KEY',exchange='binance', baseAsset='USDT')
 
 
 
@@ -82,8 +82,8 @@ def get_buy_or_sell_signal(data):
         if in_position:
             print("Time to close")
             limitSell = str(df['low'].iloc[-1]*0.9)
-            order = ba.OrderParameters(signalProvider='Test490',
-                                       signalProviderKey='CAXX1AGRDULAOKWN',
+            order = ba.OrderParameters(signalProvider='BOT_NAME',
+                                       signalProviderKey='API_KEY',
                                        extId=str(uuid.uuid4()),
                                        exchange='binance',
                                        baseAsset='BTC',
@@ -94,8 +94,8 @@ def get_buy_or_sell_signal(data):
                                        ttlType='secs',
                                        ttlSecs=str(40))
             print(json.loads(bots_platform.placeOrder(order)))
-            state_request = ba.OrderStateRequest(signalProvider='Test490', signalProviderKey='CAXX1AGRDULAOKWN', extId = order.extId)
-            position_request = ba.PositionRequest(signalProvider='Test490',signalProviderKey='CAXX1AGRDULAOKWN',exchange='binance', baseAsset='USDT')
+            state_request = ba.OrderStateRequest(signalProvider='BOT_NAME', signalProviderKey='API_KEY', extId = order.extId)
+            position_request = ba.PositionRequest(signalProvider='BOT_NAME',signalProviderKey='API_KEY',exchange='binance', baseAsset='USDT')
             #bot.sendMessage(receiver_id, bots_platform.getOrderState(state_request))
             #bot.sendMessage(receiver_id,bots_platform.getBotAssetsPct(position_request))
             
