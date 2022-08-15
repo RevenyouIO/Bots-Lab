@@ -127,8 +127,10 @@ def run_bot():
     
     get_buy_or_sell_signal(df)
 
-schedule.every(10).seconds.do(run_bot)
+                                                
+                                                 
+#schedule.every(10).seconds.do(run_bot)
 
-while True:
-    schedule.run_pending()
-    time.sleep(1)
+#while True:
+#    schedule.run_pending()
+#    time.sleep(1)
