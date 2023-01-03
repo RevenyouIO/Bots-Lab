@@ -1,7 +1,7 @@
 # Bots.Api
 ![](https://github.com/Viincenttt/Bots.Api/workflows/Bots.Api%20-%20Build%20and%20test/badge.svg)
 
-** This API implemenation does not use the new BNF API and is therefore deprecated. **
+**This API implemenation does not use the new BNF API and is therefore deprecated.**
 
 This project allows you to easily communicate with the bots.io API using C# and .NET. Bots.io has provided documentation for their API which I highly recommend you read before using this library. 
 
